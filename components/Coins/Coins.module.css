@@ -1,0 +1,32 @@
+
+.custom_table {
+  text-align: center;
+  border-color:#2e2e2e ;
+
+}
+.custom_table th,.custom_table td {
+  color: rgb(200, 200, 200);
+
+}
+.table_row {
+  cursor: pointer;
+}
+.table_row:hover {
+  background: #171718;
+}
+
+.img {
+  width: 40px;
+}
+.coin_symbol{
+  text-transform: uppercase;
+}
+
+
+.red {
+  color: #f00606;
+}
+
+.green {
+  color: #13c783;
+}

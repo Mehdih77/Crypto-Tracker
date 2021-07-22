@@ -1,0 +1,22 @@
+.navbar nav {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #1a1a1b;
+    height: 136%;
+    width: 120px;
+}
+.navbar nav div {
+    display: flex;
+    flex-direction: column;
+}
+.navbar nav div i{
+    margin: 30px 40px;
+    font-size: 25px;
+}
+.coin_logo {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  right: 30px;
+}
