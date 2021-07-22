@@ -2,6 +2,7 @@ import {useState} from 'react';
 import styles from './Coin.module.css'
 import Coins from '../../components/Coins';
 import SearchBar from '../../components/SearchBar';
+import Charts from '../../components/Charts/Charts'
 
 export default function Home({coins}) {
 
@@ -17,6 +18,7 @@ export default function Home({coins}) {
     return (
         <>
             <div className={styles.coin_app}>
+            <Charts />
                 <SearchBar onChange={handleChangeSearch}/>
                 <Coins coins={allCoins}/>
             </div>
