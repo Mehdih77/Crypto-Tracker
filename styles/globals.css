@@ -24,14 +24,7 @@ a {
 body {
   background-color: #101012;
 }
-
-.coin_app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 10px;
-  color: #fff;
-}
-
-/* Layout CSS */
-
+/* 
+.home_style {
+  padding: 300px;
+} */

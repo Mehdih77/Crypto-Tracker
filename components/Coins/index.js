@@ -4,7 +4,7 @@ import Link from 'next/link';
 const Coins = ({coins}) => {
     const coinsMap = coins.map(coin => {
         return (
-            <Link key={coin.id} href={`coin/${coin.id}`}>
+            <Link key={coin.id} href={`/graph/${coin.id}`}>
             <tr className={styles.table_row}>
             <td><img className={styles.img} src={coin.image} alt={coin.name} /></td>
             <td>{coin.name}</td>

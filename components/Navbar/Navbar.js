@@ -1,8 +1,13 @@
 import styles from './Navbar.module.css'
 import Link from 'next/link'
+import { useState } from 'react'
 
 function Navbar() {
+
+  const [isMobile, setIsMobile] = useState(false)
+
     return (
+      <>
        <header className={styles.navbar}>
         <Link href='/' >
           <a>
@@ -60,19 +65,69 @@ function Navbar() {
             </svg>
           </a>
         </Link>
+       
 
-          <nav>
+     
+        <button onClick={() => setIsMobile(!isMobile)}><i class="fas fa-bars"></i></button>
+
+          <nav className={ isMobile ? `${styles.sidebar_toggle}` : `${styles.sidebar}`}>
               <div>
-              <i className="fas fa-home"></i>
-              <i className="fas fa-address-card"></i>
-              <i className="fas fa-bookmark"></i>
-              <i className="fas fa-trophy"></i>
-              <i className="fas fa-cog"></i>
+              <Link href='/'><a><i className="fas fa-home"></i></a></Link>
+              <Link href='/graph'><a><i class="fas fa-chart-bar"></i></a></Link>
+              <Link href='/cards'><a><i className="fas fa-address-card"></i></a></Link>
+              <Link href='/trophy'><a><i className="fas fa-trophy"></i></a></Link>
+              <Link href='/setting'><a><i className="fas fa-cog"></i></a></Link>
               </div>
+              <Link href='/dashboard'><a><img className={styles.user_img} src="./img/user.png" alt="user" /></a></Link>
           </nav>
       
       </header>
+      </>
     )
 }
 
 export default Navbar
+
+
+
+
+
+
+
+
+
+
+
+
+
+ {/* <nav class={`navbar navbar-expand-lg bg-light ${styles.custom_collapse_nav}`}>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+        <Link href='/'><a><i className="fas fa-home"></i></a></Link>
+        </li>
+        <li class="nav-item">
+        <Link href='/graph'><a><i class="fas fa-chart-bar"></i></a></Link>
+        </li>
+        <li class="nav-item">
+        <Link href='/cards'><a><i className="fas fa-address-card"></i></a></Link>
+        </li>
+        <li class="nav-item">
+        <Link href='/trophy'><a><i className="fas fa-trophy"></i></a></Link>
+        </li>
+        <li class="nav-item">
+        <Link href='/setting'><a><i className="fas fa-cog"></i></a></Link>
+        </li>
+        <li class="nav-item">
+        <Link href='/dashboard'><a><img className={styles.user_img_collapse} src="./img/user.png" alt="user" /></a></Link>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav> */}

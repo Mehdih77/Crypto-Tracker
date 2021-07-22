@@ -1,22 +1,85 @@
-.navbar nav {
-    position: absolute;
-    left: 0;
-    top: 0;
-    background-color: #1a1a1b;
-    height: 136%;
-    width: 120px;
+.navbar .sidebar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #1a1a1b;
+  height: 100%;
+  width: 120px;
 }
 .navbar nav div {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
 }
-.navbar nav div i{
-    margin: 30px 40px;
-    font-size: 25px;
+.navbar nav div i {
+  margin: 40px 40px;
+  font-size: 25px;
+  color: rgb(216, 216, 216);
 }
+.navbar nav div a:nth-child(1) {
+  margin-top: 40px;
+}
+.navbar nav div a:hover,
+.user_img:hover,
+.navbar button:hover {
+  transform: scale(1.2);
+  transition: 0.2s linear;
+  
+}
+
+.user_img {
+  position: fixed;
+  bottom: 10%;
+  left: 20px;
+  width: 60px;
+}
+
 .coin_logo {
-  height: 200px;
-  width: 200px;
+  height: 110px;
+  width: 110px;
   position: absolute;
   right: 30px;
+}
+
+.navbar button {
+  display: none;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  margin-top: 20px;
+  padding: 10px;
+  position: absolute;
+  top: 5px;
+  left: 30px;
+  z-index: 5;
+  font-size: 35px;
+}
+
+@media screen and (max-width: 1200px) {
+  .navbar .sidebar {
+    transform: translateX(-150px);
+  }
+  .navbar button {
+    display: block;
+  }
+  .user_img {
+    position: fixed;
+    bottom: 47%;
+    left: 20px;
+    width: 60px;
+  }
+  .navbar nav div a:nth-child(1) {
+    margin-top: 90px;
+  }
+}
+
+.sidebar_toggle {
+  transform: translateX(0);
+  transition: 0.3s linear;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #1a1a1b;
+  height: 170%;
+  width: 120px;
 }
