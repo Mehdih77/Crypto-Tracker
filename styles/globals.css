@@ -24,7 +24,82 @@ a {
 body {
   background-color: #101012;
 }
-/* 
-.home_style {
-  padding: 300px;
-} */
+
+.money {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 50px;
+  left: 200px;
+  width: 1100px;
+  height: auto;
+  padding: 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  background: hsla(240, 2%, 10%, 1);
+
+  background: linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 74%,
+    rgb(21, 25, 75) 100%
+  );
+
+  background: -moz-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 74%,
+    rgb(21, 25, 75) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 74%,
+    rgb(21, 25, 75) 100%
+  );
+}
+
+.money-income, .money-expense,.money-bonus {
+  display: flex;
+  margin: 15px auto;
+}
+.money-details p {
+  color: rgb(156, 156, 156);
+  line-height: 32px;
+  padding-right: 30px;
+}
+.money-details p:nth-child(2) {
+  color: rgb(255, 255, 255);
+  font-weight: 800;
+  font-size: 22px;
+}
+
+.charts{
+  width: 1100px;
+  position: absolute;
+  top: 350px;
+  left: 200px;
+  padding: 20px;
+  border-radius: 20px;
+  background: linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 74%,
+    rgb(21, 25, 75) 100%
+  );
+
+  background: -moz-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 74%,
+    rgb(21, 25, 75) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 74%,
+    rgb(21, 25, 75) 100%
+  );
+}

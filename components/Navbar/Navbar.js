@@ -9,7 +9,7 @@ function Navbar() {
     return (
       <>
        <header className={styles.navbar}>
-        <Link href='/' >
+        {/* <Link href='/' >
           <a>
             <svg
               width='675'
@@ -65,22 +65,22 @@ function Navbar() {
             </svg>
           </a>
         </Link>
-       
+        */}
 
      
-        <button onClick={() => setIsMobile(!isMobile)}><i class="fas fa-bars"></i></button>
 
           <nav className={ isMobile ? `${styles.sidebar_toggle}` : `${styles.sidebar}`}>
               <div>
               <Link href='/'><a><i className="fas fa-home"></i></a></Link>
               <Link href='/graph'><a><i class="fas fa-chart-bar"></i></a></Link>
               <Link href='/cards'><a><i className="fas fa-address-card"></i></a></Link>
-              <Link href='/trophy'><a><i className="fas fa-trophy"></i></a></Link>
+              <Link href='/trophy'><a className='position-relative'><span className={styles.nav_badge}>2</span><i className="fas fa-trophy"></i></a></Link>
               <Link href='/setting'><a><i className="fas fa-cog"></i></a></Link>
               </div>
               <Link href='/dashboard'><a><img className={styles.user_img} src="./img/user.png" alt="user" /></a></Link>
           </nav>
-      
+          <button onClick={() => setIsMobile(!isMobile)}><i class="fas fa-bars"></i></button>
+
       </header>
       </>
     )
