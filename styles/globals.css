@@ -25,6 +25,7 @@ body {
   background-color: #101012;
 }
 
+/*Money ProgressBar*/
 .money {
   display: flex;
   flex-direction: row;
@@ -59,8 +60,9 @@ body {
     rgb(21, 25, 75) 100%
   );
 }
-
-.money-income, .money-expense,.money-bonus {
+.money-income,
+.money-expense,
+.money-bonus {
   display: flex;
   margin: 15px auto;
 }
@@ -74,11 +76,82 @@ body {
   font-weight: 800;
   font-size: 22px;
 }
+/* Credit Card */
+.my-credit-card {
+  position: absolute;
+  left: 1450px;
+  top: 50px;
+  width: 350px;
+  height: 226px;
+  padding: 20px;
+  border-radius: 25px;
+  background: linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 54%,
+    rgb(21, 25, 87) 100%
+  );
 
-.charts{
+  background: -moz-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 54%,
+    rgb(21, 25, 87) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 54%,
+    rgb(21, 25, 87) 100%
+  );
+}
+.my-credit-card-name {
+  padding-left: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.my-credit-card i.fa-credit-card {
+  font-size: 40px;
+  padding-left: 10px;
+}
+.my-credit-card-number {
+  padding-top: 20px;
+}
+.my-credit-card-number span {
+  padding-left: 10px;
+}
+.my-credit-card-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
+  position: relative;
+}
+.my-credit-card-bottom p {
+  font-size: 14px;
+  padding-top: 5px;
+}
+.my-credit-card-bottom i {
+  font-size: 22px;
+  color: rgb(255, 255, 255);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.my-credit-card-bottom::before {
+  content: "";
+  position: absolute;
+  width: 113%;
+  height: 2px;
+  top: -9px;
+  left: -19px;
+  background-color: #201660;
+}
+
+/* Charts */
+.charts {
   width: 1100px;
   position: absolute;
-  top: 350px;
+  top: 340px;
   left: 200px;
   padding: 20px;
   border-radius: 20px;
@@ -102,4 +175,92 @@ body {
     hsla(240, 26%, 11%, 1) 74%,
     rgb(21, 25, 75) 100%
   );
+}
+
+/* Recent Activity */
+.recent-activity {
+  position: absolute;
+  left: 1450px;
+  top: 340px;
+  width: 350px;
+  height: 570px;
+  overflow-y: scroll;
+  padding: 20px;
+  border-radius: 25px;
+  background: linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 54%,
+    rgb(21, 25, 87) 100%
+  );
+
+  background: -moz-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 54%,
+    rgb(21, 25, 87) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 54%,
+    rgb(21, 25, 87) 100%
+  );
+}
+.recent-activity-top {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.recent-activity-top h5 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+.recent-activity-top button {
+  font-size: 22px;
+  margin-right: 7px;
+  margin-top: -5px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+.recent-activity-top::after {
+  content: "";
+  position: absolute;
+  width: 113%;
+  height: 2px;
+  top: 40px;
+  left: -19px;
+  background-color: #201660;
+}
+.recent-activity-details {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+.recent-activity-details i {
+  font-size: 25px;
+}
+.recent-activity-details .recent-activity-name {
+  font-size: 19px;
+}
+.recent-activity-details .recent-activity-qty {
+  font-weight: bold;
+}
+.recent-activity-qty-green {
+  color: #13c783;
+  font-weight: bold;
+  font-size: 23px;
+  padding: 0 6px;
+}
+.recent-activity-qty-red {
+  color: #f00606;
+  font-weight: bold;
+  font-size: 23px;
+  padding: 0 6px;
 }
