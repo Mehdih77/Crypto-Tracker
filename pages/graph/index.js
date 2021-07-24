@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import styles from './Coin.module.css'
+import styles from './Graph.module.css'
 import Coins from '../../components/Coins';
 import SearchBar from '../../components/SearchBar';
 import Charts from '../../components/Charts/Charts'
