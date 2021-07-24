@@ -1,0 +1,18 @@
+{
+  "activitys": [
+    {
+      "logo": "fas fa-dollar-sign",
+      "activity": "Buy Dollar",
+      "kind": "-",
+      "price": "4000",
+      "id": 1
+    },
+    {
+      "logo": "fab fa-ethereum",
+      "activity": "buy ethereum",
+      "kind": "-",
+      "price": "9600",
+      "id": 2
+    }
+  ]
+}

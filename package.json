@@ -6,9 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "server": "json-server --watch ./db.json --port 5000"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.2",
     "axios": "^0.21.1",
     "chart.js": "^3.4.1",
     "next": "11.0.1",

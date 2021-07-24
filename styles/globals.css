@@ -248,9 +248,11 @@ body {
 }
 .recent-activity-details .recent-activity-name {
   font-size: 19px;
+  word-break: break-all;
 }
 .recent-activity-details .recent-activity-qty {
   font-weight: bold;
+  word-break: break-all;
 }
 .recent-activity-qty-green {
   color: #13c783;
@@ -263,4 +265,51 @@ body {
   font-weight: bold;
   font-size: 23px;
   padding: 0 6px;
+}
+
+/* Form Activity */
+.form-title {
+  color: #101012;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin-bottom: -15px;
+}
+.form-activity {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px 0;
+}
+.form-add-activity,
+.form-price,
+.form-add-kind {
+  margin: 10px 0;
+  height: 40px;
+}
+.form-add-activity:enabled,
+.form-add-activity::placeholder,
+.form-price:enabled,
+.form-price::placeholder,
+.form-add-kind,
+.form-add-kind option {
+  color: #101012;
+  padding-left: 2px;
+}
+.form-button {
+  margin: 10px 0;
+  height: 40px;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  background-color: rgb(17, 26, 53);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+@media screen and (max-width: 630px) {
+  .form-activity {
+    width: 380px;
+  }
 }

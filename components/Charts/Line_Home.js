@@ -8,7 +8,7 @@ const data = {
       label: '# of Votes',
       data: [12, 19, 3, 11, 7, 9],
       fill: true,
-      backgroundColor: 'rgba(50, 41, 106,0.1)',
+      backgroundColor: 'rgba(50, 41, 106,0.3)',
       borderColor: 'rgba(50, 41, 106,0.5)',
     
     },
@@ -16,7 +16,7 @@ const data = {
       label: '# of No Votes',
       data: [14, 2, 6, 1, 2, 17],
       fill: true,
-      backgroundColor: 'rgba(185, 158, 137,0.1)',
+      backgroundColor: 'rgba(185, 158, 137,0.3)',
       borderColor: 'rgba(185, 158, 137,0.5)',
 
     },
