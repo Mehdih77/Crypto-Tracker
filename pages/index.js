@@ -17,13 +17,16 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export const getServerSideProps = async() => {
 
     const getActivitys = await get('/activitys').then(response => response.data)
-
+    const res = await fetch(`http://localhost:5000/activitys/1`)
+    const getPrices = await res.json()
+    // console.log(getPrices);
     return {props: {
-        getActivitys
+        getActivitys,
+        getPrices
         }}
 }
 
-export default function Home({getActivitys}) {
+export default function Home({getActivitys,getPrices}) {
 
     const router = useRouter();
 
@@ -66,15 +69,22 @@ export default function Home({getActivitys}) {
         )
     })
 
-    const [open, setOpen] = useState(false);
-
-  const handleClickOpen = () => {
+    // OPen & Close Modal Form
+const [open, setOpen] = useState(false);
+const handleClickOpen = () => {
     setOpen(true);
   };
-
-  const handleClose = () => {
+const handleClose = () => {
     setOpen(false);
   };
+
+
+/////// FIIIIIIIIIIIIIIX MEEEEEEEEEEEEEEEEEEEEEEEEE ///////////
+
+//   const calculatePrice = getPrices.map((calc,index) => {
+//          return (calc[0].price - 1000)
+//   })
+
 
     return (
         <>
@@ -83,7 +93,7 @@ export default function Home({getActivitys}) {
                 <div className='money-income'>
                 <div className='money-details'>
                 <p>Total Income</p>
-                <p>$ { getActivitys[0].price - 1400 }</p>
+                <p>$ { getPrices.price }</p>
                 <p>During last month</p>
                 </div>
                 <Circle type={'income'} value={'60%'} />

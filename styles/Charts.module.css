@@ -1,0 +1,119 @@
+.pie_chart{
+    position: absolute;
+    top: 50px;
+    left: 300px;
+}
+.horizontal_bar{
+    position: absolute;
+    top: 50px;
+    left: 900px;
+    border-radius: 10px;
+    background: linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 74%,
+    rgb(21, 25, 75) 100%
+  );
+
+  background: -moz-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 74%,
+    rgb(21, 25, 75) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 74%,
+    rgb(21, 25, 75) 100%
+  );
+}
+.bar_chart{
+    width: 950px;
+    position: absolute;
+    top: 430px;
+    left: 500px;
+    border-radius: 10px;
+    background: linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 74%,
+    rgb(21, 25, 75) 100%
+  );
+
+  background: -moz-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 74%,
+    rgb(21, 25, 75) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 74%,
+    rgb(21, 25, 75) 100%
+  );
+}
+.bar_text{
+    text-align: center;
+    position: absolute;
+    right: -23%;
+    top: 30%;
+    padding: 20px;
+    border-radius: 10px;
+    background: linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 74%,
+    rgb(21, 25, 75) 100%
+  );
+
+  background: -moz-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 74%,
+    rgb(21, 25, 75) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 74%,
+    rgb(21, 25, 75) 100%
+  );
+}
+.bar_chart p {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.bar_text::after{
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 40%;
+    left: -8%;
+    transform: rotate(45deg);
+    z-index: -2;
+    background: linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 74%,
+    rgb(21, 25, 75) 100%
+  );
+
+  background: -moz-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 74%,
+    rgb(21, 25, 75) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 74%,
+    rgb(21, 25, 75) 100%
+  );
+}

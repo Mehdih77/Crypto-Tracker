@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import Navbar from '../components/Navbar/Navbar';
-import Footer from '../components/Footer/Footer';
 
 const Layout = ({ children, title = 'Crypto Tracker' }) => {
   return (
@@ -13,7 +12,6 @@ const Layout = ({ children, title = 'Crypto Tracker' }) => {
       </Head>
         <Navbar />
       <main>{children}</main>
-      <Footer />
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     </div>

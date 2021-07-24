@@ -35,6 +35,9 @@
   font-size: 25px;
   color: rgb(216, 216, 216);
 }
+.navbar nav div a {
+ position: relative;
+}
 .navbar nav div a:nth-child(1) {
   margin-top: 40px;
 }
@@ -144,6 +147,7 @@
     rgb(8, 10, 46) 100%
   );
 }
+
 .sidebar_toggle ~ button {
   position: fixed;
 }
