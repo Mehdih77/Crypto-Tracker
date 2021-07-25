@@ -1,0 +1,191 @@
+.setting_section {
+  position: absolute;
+  top: 60px;
+  left: 180px;
+  width: 1700px;
+}
+.setting_container {
+  background: linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 54%,
+    rgb(21, 25, 87) 100%
+  );
+
+  background: -moz-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 54%,
+    rgb(21, 25, 87) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 54%,
+    rgb(21, 25, 87) 100%
+  );
+}
+.setting_form {
+  margin-top: 50px;
+}
+
+/* PROFILE TAB */
+.profile_tab {
+  display: flex;
+}
+
+/* PROFILE TAB LEFT */
+.profile_tab_left {
+  margin-right: 60px;
+}
+.profile_picture {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(199, 199, 199, 0.26);
+  border-radius: 10px;
+  padding: 30px;
+  width: 500px;
+  height: 400px;
+}
+.profile_picture:hover {
+  box-shadow: 0px 0px 3px 0px rgba(199, 199, 199);
+}
+.profile_picture p {
+  position: absolute;
+  top: 16px;
+}
+.profile_picture p::after {
+  content: "";
+  width: 499px;
+  height: 1px;
+  background-color: rgba(199, 199, 199, 0.26);
+  position: absolute;
+  top: 45px;
+  left: -177px;
+}
+.profile_picture img {
+  width: 120px;
+  top: 110px;
+  position: absolute;
+}
+.profile_picture button {
+  top: 270px;
+  position: absolute;
+  background-color: rgb(18, 18, 41);
+  width: 300px;
+  padding: 15px;
+  border: 1px solid rgba(199, 199, 199, 0.26);
+  border-radius: 13px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.profile_picture button:hover {
+  background-color: rgb(20, 20, 47);
+  transition: 0.2s linear;
+}
+
+/* PROFILE TAB RIGHT */
+.profile_tab_right {
+  width: 1100px;
+  height: 550px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgba(199, 199, 199, 0.26);
+  border-radius: 10px;
+  padding: 30px;
+}
+.profile_tab_right:hover {
+  box-shadow: 0px 0px 3px 0px rgba(199, 199, 199);
+}
+.profile_tab_right_title {
+  position: absolute;
+  top: 16px;
+}
+.profile_tab_right_title::after {
+  content: "";
+  width: 1090px;
+  height: 1px;
+  background-color: rgba(199, 199, 199, 0.26);
+  position: absolute;
+  top: 45px;
+  left: -30px;
+}
+.setting_form {
+  margin-top: -10px;
+}
+.setting_form input {
+  outline: none;
+  height: 50px;
+  border: 1px solid rgba(180, 180, 180, 0.37);
+  border-radius: 15px;
+  background: linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 54%,
+    rgb(21, 25, 87) 100%
+  );
+
+  background: -moz-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 54%,
+    rgb(21, 25, 87) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 54%,
+    rgb(21, 25, 87) 100%
+  );
+}
+.setting_form input:hover {
+  border: 1px solid rgb(204, 204, 204);
+}
+.setting_form input:focus {
+  border: 1px solid rgb(21, 114, 177);
+}
+.setting_form input:enabled {
+  color: rgb(207, 207, 207);
+  padding-left: 5px;
+}
+.setting_form input::placeholder {
+  color: rgb(207, 207, 207);
+  padding-left: 5px;
+}
+.setting_form input[placeholder="Name"] {
+  display: block;
+  margin-bottom: 30px;
+}
+.setting_form input[placeholder="Email Address"] {
+  display: block;
+  margin-bottom: 20px;
+}
+.setting_form_small_inputs input {
+  width: 49%;
+  margin: 15px 0;
+}
+.setting_form_small_inputs input:nth-of-type(2) {
+  margin-left: 20px;
+}
+.setting_form button {
+  position: absolute;
+  background-color: rgb(18, 18, 41);
+  width: 300px;
+  padding: 15px;
+  margin-top: 30px;
+  border: 1px solid rgba(199, 199, 199, 0.26);
+  border-radius: 13px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.setting_form button:hover {
+  background-color: rgb(20, 20, 47);
+  transition: 0.2s linear;
+}

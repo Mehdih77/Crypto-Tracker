@@ -20,7 +20,7 @@ function Navbar() {
               </div>
               <Link href='/dashboard'><a><img className={styles.user_img} src="/img/user.png" alt="user" /></a></Link>
           </nav>
-          <button onClick={() => setIsMobile(!isMobile)}><i class={isMobile ? "fas fa-times" : 'fas fa-bars'}></i></button>
+          <button onClick={() => setIsMobile(!isMobile)}><i className={isMobile ? "fas fa-times" : 'fas fa-bars'}></i></button>
 
       </header>
       </>

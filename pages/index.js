@@ -57,11 +57,11 @@ export default function Home({getActivitys,getPrices}) {
         getRecentActivitys()
     },[])
 
-    const mapRecentActivity = getActivitys.map((activity,index) => {
+    const mapRecentActivity = getActivitys.map((activity) => {
         return (
             <>
-            <div key={index} className='recent-activity-details'>
-                    <i class={activity.logo}></i> 
+            <div key={activity.price} className='recent-activity-details'>
+                    <i className={activity.logo}></i> 
                     <p className='recent-activity-name'>{activity.activity}</p>
                     <p className='recent-activity-qty'> <span className={activity.kind === '+' ? 'recent-activity-qty-green' : 'recent-activity-qty-red'}>{activity.kind}</span>${activity.price}</p>
             </div>
@@ -167,27 +167,27 @@ const handleClose = () => {
                     </div>
                     <div className='recent-activity-bottom'>
                         <div className='recent-activity-details'>
-                            <i class="fab fa-bitcoin"></i>
+                            <i className="fab fa-bitcoin"></i>
                             <p className='recent-activity-name'>Sold BitCoin</p>
                             <p className='recent-activity-qty'> <span className='recent-activity-qty-green'>+</span> $12000</p>
                         </div>
                         <div className='recent-activity-details'>
-                            <i class="fab fa-ethereum"></i> 
+                            <i className="fab fa-ethereum"></i> 
                             <p className='recent-activity-name'>Buy Ethereum</p>
                             <p className='recent-activity-qty'> <span className='recent-activity-qty-red'>-</span> $8000</p>
                         </div>
                         <div className='recent-activity-details'>
-                            <i class="fas fa-euro-sign"></i> 
+                            <i className="fas fa-euro-sign"></i> 
                             <p className='recent-activity-name'>Save Euro</p>
                             <p className='recent-activity-qty'> <span className='recent-activity-qty-green'>+</span> $7000</p>
                         </div>
                         <div className='recent-activity-details'>
-                            <i class="fas fa-yen-sign"></i>
+                            <i className="fas fa-yen-sign"></i>
                             <p className='recent-activity-name'>Sold Yen</p>
                             <p className='recent-activity-qty'> <span className='recent-activity-qty-green'>+</span> $15000</p>
                         </div>
                         <div className='recent-activity-details'>
-                            <i class="fas fa-dollar-sign"></i> 
+                            <i className="fas fa-dollar-sign"></i> 
                             <p className='recent-activity-name'>Save Dollar</p>
                             <p className='recent-activity-qty'> <span className='recent-activity-qty-green'>+</span> $6500</p>
                         </div>
