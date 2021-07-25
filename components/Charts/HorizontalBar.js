@@ -49,7 +49,7 @@ const options = {
 
 const HorizontalBarChart = () => (
   <>
-    <Bar width={650} height={320} data={data} options={options} />
+    <Bar width={950} height={320} data={data} options={options} />
   </>
 );
 

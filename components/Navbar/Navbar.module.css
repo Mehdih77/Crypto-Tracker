@@ -126,6 +126,7 @@
   top: 0;
   height: 100%;
   width: 120px;
+  z-index: 4;
   background: linear-gradient(
     145deg,
     rgb(19, 19, 31) 0%,

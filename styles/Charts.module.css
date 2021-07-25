@@ -1,12 +1,7 @@
-.pie_chart{
-    position: absolute;
-    top: 50px;
-    left: 300px;
-}
 .horizontal_bar{
     position: absolute;
     top: 50px;
-    left: 900px;
+    left: 250px;
     border-radius: 10px;
     background: linear-gradient(
     55deg,
@@ -33,7 +28,7 @@
     width: 950px;
     position: absolute;
     top: 430px;
-    left: 500px;
+    left: 250px;
     border-radius: 10px;
     background: linear-gradient(
     55deg,
@@ -116,4 +111,45 @@
     hsla(240, 26%, 11%, 1) 74%,
     rgb(21, 25, 75) 100%
   );
+}
+
+/* Small Chart */
+.right_charts{
+  position: absolute;
+  left: 1300px;
+  top: 50px;
+}
+.small_chart{
+  width: 450px;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 74%,
+    rgb(21, 25, 75) 100%
+  );
+
+  background: -moz-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 74%,
+    rgb(21, 25, 75) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 74%,
+    rgb(21, 25, 75) 100%
+  );
+}
+.small_chart_title{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+.small_chart_title p{
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }

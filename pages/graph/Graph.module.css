@@ -20,6 +20,7 @@
   border-radius: 10px;
   text-align: center;
   padding-top: 10px;
+  box-shadow: 0px 0px 8px 2px rgb(34 37 88);
   background: linear-gradient(
     55deg,
     hsla(240, 26%, 11%, 1) 0%,
@@ -48,6 +49,10 @@
 .coin_image {
   width: 210px;
   margin-right: 40px;
+  /* background-color: rgb(34 37 88); */
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px 5px rgb(34 37 88);
+
 }
 .high_24h {
   color: #13c7829b !important;
