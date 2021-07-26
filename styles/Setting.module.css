@@ -31,15 +31,18 @@
 }
 
 /* PROFILE TAB */
-.profile_tab {
+.profile_tab,
+.security_tab, .notification_tab {
   display: flex;
 }
 
-/* PROFILE TAB LEFT */
-.profile_tab_left {
+/*  TAB LEFT */
+.profile_tab_left,
+.security_tab_left, .notification_tab_left {
   margin-right: 60px;
 }
-.profile_picture {
+.profile_picture,
+.credir_card_changing, .notification_receive {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -51,14 +54,22 @@
   width: 500px;
   height: 400px;
 }
-.profile_picture:hover {
+.notification_receive{
+  width: 700px;
+  align-items:flex-start;
+  justify-content: flex-start;
+}
+.profile_picture:hover,
+.credir_card_changing:hover, .security_tab_bottom:hover, .notification_receive:hover {
   box-shadow: 0px 0px 3px 0px rgba(199, 199, 199);
 }
-.profile_picture p {
+.profile_picture p,
+.credir_card_changing p, .notification_receive p {
   position: absolute;
   top: 16px;
 }
-.profile_picture p::after {
+.profile_picture p::after,
+.credir_card_changing p::after, .notification_receive p::after {
   content: "";
   width: 499px;
   height: 1px;
@@ -67,12 +78,21 @@
   top: 45px;
   left: -177px;
 }
-.profile_picture img {
+.notification_receive p::after{
+  width: 698px;
+  left: -30px;
+}
+.credir_card_changing p::after {
+  left: -186px;
+}
+.profile_picture img,
+.credir_card_changing img {
   width: 120px;
   top: 110px;
   position: absolute;
 }
-.profile_picture button {
+.profile_picture .tab1_button,
+.credir_card_changing button {
   top: 270px;
   position: absolute;
   background-color: rgb(18, 18, 41);
@@ -83,13 +103,15 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-.profile_picture button:hover {
+.profile_picture .tab1_button:hover,
+.credir_card_changing button:hover {
   background-color: rgb(20, 20, 47);
   transition: 0.2s linear;
 }
 
-/* PROFILE TAB RIGHT */
-.profile_tab_right {
+/*  TAB RIGHT */
+.profile_tab_right,
+.security_tab_right, .notification_tab_right {
   width: 1100px;
   height: 550px;
   position: relative;
@@ -100,14 +122,23 @@
   border-radius: 10px;
   padding: 30px;
 }
-.profile_tab_right:hover {
+.notification_tab_right{
+  width: 900px;
+}
+.security_tab_right {
+  height: 400px;
+}
+.profile_tab_right:hover,
+.security_tab_right:hover, .notification_tab_right:hover{
   box-shadow: 0px 0px 3px 0px rgba(199, 199, 199);
 }
-.profile_tab_right_title {
+.profile_tab_right_title,
+.security_tab_right_title, .notification_tab_right_title, .notification_tab_right_title {
   position: absolute;
   top: 16px;
 }
-.profile_tab_right_title::after {
+.profile_tab_right_title::after,
+.security_tab_right_title::after, .notification_tab_right_title::after {
   content: "";
   width: 1090px;
   height: 1px;
@@ -116,6 +147,11 @@
   top: 45px;
   left: -30px;
 }
+.notification_tab_right_title::after{
+  width: 890px;
+}
+
+/* Setting Form*/
 .setting_form {
   margin-top: -10px;
 }
@@ -174,7 +210,8 @@
 .setting_form_small_inputs input:nth-of-type(2) {
   margin-left: 20px;
 }
-.setting_form button {
+.setting_form .tab1_button,
+.change_password_button {
   position: absolute;
   background-color: rgb(18, 18, 41);
   width: 300px;
@@ -185,7 +222,90 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-.setting_form button:hover {
+.setting_form .tab1_button:hover,
+.change_password_button:hover {
   background-color: rgb(20, 20, 47);
   transition: 0.2s linear;
+}
+
+/* Security */
+.current_password {
+  position: relative;
+  top: -30px;
+}
+.new_password {
+  position: relative;
+  top: -10px;
+}
+.renew_password {
+  position: relative;
+  top: 10px;
+}
+.password_input {
+  width: 100%;
+}
+.password_button {
+  background: none;
+  border: none;
+  position: absolute;
+  top: 7px;
+  right: 20px;
+}
+/* Security BOTTOM */
+.security_tab_bottom {
+  width: 100%;
+  border: 1px solid rgba(199, 199, 199, 0.26);
+  border-radius: 10px;
+  margin: 25px 0;
+  padding: 20px;
+  height: 200px;
+}
+.delete_account_title {
+  position: relative;
+  padding-bottom: 10px;
+}
+.delete_account_title::after {
+  content: '';
+  position: absolute;
+  width: 1650px;
+  height: 1px;
+  background-color: rgba(199, 199, 199, 0.26) ;
+  top: 40px;
+  left: -20px;
+}
+.delete_account_body {
+  margin: 20px 0;
+}
+.delete_account_button {
+  background-color: transparent;
+  border: 1px solid rgb(218, 0, 0);
+  border-radius: 13px;
+  padding: 10px;
+  color: rgb(218, 0, 0);
+  font-size: 16px;
+  width: 180px;
+  float: right;
+}
+.delete_account_button:hover {
+  box-shadow: 0px 0px 3px 1px rgb(218, 0, 0);
+  font-weight: bold;
+}
+
+/* Notification Tab */
+.notification_receive_boxes{
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+.notification_tab_right_top{
+  display: flex;
+  flex-direction: column;
+}
+.notification_tab_right_bottom{
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+.notification_tab_right_top p,.notification_tab_right_bottom p{
+  font-weight: bold;
 }

@@ -1,13 +1,16 @@
 import React from 'react';
 import styles from '../styles/Setting.module.css'
 import PropTypes from 'prop-types';
-import {makeStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import TextField from '@material-ui/core/TextField';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Switch from '@material-ui/core/Switch';
 
 function TabPanel(props) {
     const {
@@ -43,31 +46,74 @@ function a11yProps(index) {
     return {id: `simple-tab-${index}`, 'aria-controls': `simple-tabpanel-${index}`};
 }
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-        backgroundColor: theme.palette.background.paper,
-        '& > *': {
-            margin: theme.spacing(2),
-            width: '30ch'
-        }
-    }
-}));
-
 export default function Setting() {
-    const classes = useStyles();
-    const [value,
-        setValue] = React.useState(0);
 
-    const handleChange = (event, newValue) => {
+    // Password 
+    const [values, setValues] = React.useState({
+        password: '',
+        showPassword: false,
+      });
+    
+      const handleChange = (prop) => (event) => {
+        setValues({ ...values, [prop]: event.target.value });
+      };
+    
+      const handleClickShowPassword = () => {
+        setValues({ ...values, showPassword: !values.showPassword });
+      };
+    
+      const handleMouseDownPassword = (event) => {
+        event.preventDefault();
+      };
+
+      // Tabs Change
+    const [value,setValue] = React.useState(0);
+
+    const handleChangeTab = (event , newValue) => {
         setValue(newValue);
     };
+
+
+    // Delete Account
+    function handleDeleteAccount(){
+        if (confirm('Are You Sure To Delete Your Account?')) {
+            alert('Your Account Deleted')
+        } else {
+            alert(' :) ')
+        }
+    }
+
+    // CheckBox
+        const [state, setState] = React.useState({
+          checkedA: true,
+          checkedB: true,
+          checkedC: false,
+          checkedD: false
+        });
+      
+        const handleChangeCheckBox = (event) => {
+          setState({ ...state, [event.target.name]: event.target.checked });
+        };
+
+        //Switchers
+        const [switcher, setSwitcher] = React.useState({
+            checkedA: true,
+            checkedB: false,
+            checkedC: true,
+            checkedD: true,
+            checkedE: true,
+            checkedF: false,
+          });
+        
+          const handleChangeSwitcher = (event) => {
+            setSwitcher({ ...switcher, [event.target.name]: event.target.checked });
+          };
 
     return (
         <div className={styles.setting_section}>
             <div className={styles.setting_container}>
                 <AppBar position="static">
-                    <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
+                    <Tabs value={value} onChange={handleChangeTab} aria-label="simple tabs example">
                         <Tab label="Profile" {...a11yProps(0)}/>
                         <Tab label="security" {...a11yProps(1)}/>
                         <Tab label="notification" {...a11yProps(2)}/>
@@ -80,7 +126,7 @@ export default function Setting() {
                             <div className={styles.profile_picture}>
                                 <p>Profile Picture</p>
                                 <img src='./img/user.png'/>
-                                <button>Upload/Change Avatar</button>
+                                <button className={styles.tab1_button}>Upload/Change Avatar</button>
                             </div>
                         </div>
                         <div className={styles.profile_tab_right}>
@@ -98,7 +144,7 @@ export default function Setting() {
                                 <input type="text" placeholder='Phone Number' />
                                 <input type="date" placeholder='Birthday' />
                                 </div>
-                                <button>Update Changes</button>
+                                <button className={styles.tab1_button}>Update Changes</button>
                             </form>
                             </div>
                            
@@ -108,64 +154,183 @@ export default function Setting() {
                 </TabPanel>
 
                 <TabPanel value={value} index={1}>
-                <div className={styles.profile_tab}>
-                        <div className={styles.profile_tab_left}>
-                            <div className={styles.profile_picture}>
-                                <p>Profile Picture</p>
-                                <img src='./img/user.png'/>
-                                <button>Upload/Change Avatar</button>
+                <div className={styles.security_tab}>
+                        <div className={styles.security_tab_left}>
+                            <div className={styles.credir_card_changing}>
+                                <p>Credit Cards</p>
+                                <img src='./img/Credit-Card-Users.png'/>
+                                <button>Add/Remove Cards</button>
                             </div>
                         </div>
-                        <div className={styles.profile_tab_right}>
+                        <div className={styles.security_tab_right}>
                             <div>
-                            <p className={styles.profile_tab_right_title}>Edit Account Details</p>
-                            <form
-                                className={styles.setting_form} autoComplete="off">
-                                <input className='w-100' type="text" placeholder='Name' />
-                                <input className='w-100' type="email" placeholder='Email Address' />
-                                <div className={styles.setting_form_small_inputs}>
-                                <input type="text" placeholder='Company' />
-                                <input type="text" placeholder='Country' />
-                                </div>
-                                <div className={styles.setting_form_small_inputs}>
-                                <input type="text" placeholder='Phone Number' />
-                                <input type="date" placeholder='Birthday' />
-                                </div>
-                                <button>Update Changes</button>
-                            </form>
+                            <p className={styles.security_tab_right_title}>Edit Account Password</p>
+                                 <div className={styles.setting_form} >
+                                        <div className={styles.current_password}>   
+                                        <input placeholder='Current Password' className={styles.password_input} type={values.showPassword ? 'text' : 'password'} onChange={handleChange('password')}  />
+                                        <button className={styles.password_button} aria-label="toggle password visibility"
+                                                    onClick={handleClickShowPassword}
+                                                    onMouseDown={handleMouseDownPassword}>{values.showPassword ? <Visibility /> : <VisibilityOff />}</button>
+                                            
+                                        </div>
+                                        <div className={styles.new_password}>   
+                                        <input placeholder='New Password' className={styles.password_input} type={values.showPassword ? 'text' : 'password'} onChange={handleChange('password')}  />
+                                        <button className={styles.password_button} aria-label="toggle password visibility"
+                                                    onClick={handleClickShowPassword}
+                                                    onMouseDown={handleMouseDownPassword}>{values.showPassword ? <Visibility /> : <VisibilityOff />}</button>
+                                            
+                                        </div>
+                                        <div className={styles.renew_password}>   
+                                        <input placeholder='Re-enter New Password' className={styles.password_input} type={values.showPassword ? 'text' : 'password'} onChange={handleChange('password')}  />
+                                        <button className={styles.password_button} aria-label="toggle password visibility"
+                                                    onClick={handleClickShowPassword}
+                                                    onMouseDown={handleMouseDownPassword}>{values.showPassword ? <Visibility /> : <VisibilityOff />}</button>
+                                            
+                                        </div>
+                                 <button className={styles.change_password_button}>Change Password</button>
+                                 </div>
+
                             </div>
                            
 
                         </div>
                     </div>
+                    <div className={styles.security_tab_bottom}>
+                         <p className={styles.delete_account_title}>Delete Account</p>
+                         <p className={styles.delete_account_body}>To deactivate your account, first delete its resources. If you are the only owner of any teams, either assign another owner or deactivate the team.</p>
+                        <button onClick={handleDeleteAccount} className={styles.delete_account_button}>Delete Account</button>
+                    </div>
+
                 </TabPanel>
 
                 <TabPanel value={value} index={2}>
-                     <div className={styles.profile_tab}>
-                        <div className={styles.profile_tab_left}>
-                            <div className={styles.profile_picture}>
-                                <p>Profile Picture</p>
-                                <img src='./img/user.png'/>
-                                <button>Upload/Change Avatar</button>
+                     <div className={styles.notification_tab}>
+                        <div className={styles.notification_tab_left}>
+                            <div className={styles.notification_receive}>
+                                <p>Subscription Preference Center </p>
+                               <div className={styles.notification_receive_boxes}>
+                               <FormControlLabel
+                                        control={
+                                        <Checkbox
+                                            checked={state.checkedA}
+                                            onChange={handleChangeCheckBox}
+                                            name="checkedA"
+                                            color="primary"
+                                        />
+                                        }
+                                        label="Product Announcements and Updates"
+                                    />
+                                    <FormControlLabel
+                                        control={
+                                        <Checkbox
+                                            checked={state.checkedB}
+                                            onChange={handleChangeCheckBox}
+                                            name="checkedB"
+                                            color="primary"
+                                        />
+                                        }
+                                        label="Events and Meetups"
+                                    />
+                                    <FormControlLabel
+                                        control={
+                                        <Checkbox
+                                            checked={state.checkedC}
+                                            onChange={handleChangeCheckBox}
+                                            name="checkedC"
+                                            color="primary"
+                                        />
+                                        }
+                                        label="User Research Surveys"
+                                    />
+                                    <FormControlLabel
+                                        control={
+                                        <Checkbox
+                                            checked={state.checkedD}
+                                            onChange={handleChangeCheckBox}
+                                            name="checkedD"
+                                            color="primary"
+                                        />
+                                        }
+                                        label="Hatch Startup Program"
+                                    />
+                               </div>
                             </div>
                         </div>
-                        <div className={styles.profile_tab_right}>
+                        <div className={styles.notification_tab_right}>
                             <div>
-                            <p className={styles.profile_tab_right_title}>Edit Account Details</p>
-                            <form
-                                className={styles.setting_form} autoComplete="off">
-                                <input className='w-100' type="text" placeholder='Name' />
-                                <input className='w-100' type="email" placeholder='Email Address' />
-                                <div className={styles.setting_form_small_inputs}>
-                                <input type="text" placeholder='Company' />
-                                <input type="text" placeholder='Country' />
-                                </div>
-                                <div className={styles.setting_form_small_inputs}>
-                                <input type="text" placeholder='Phone Number' />
-                                <input type="date" placeholder='Birthday' />
-                                </div>
-                                <button>Update Changes</button>
-                            </form>
+                            <p className={styles.notification_tab_right_title}>ACTIVITY RELATED EMAILS</p>
+                            <div className={styles.notification_tab_right_top}>
+                                <p>When to email?</p>
+                                <FormControlLabel
+                                    control={
+                                    <Switch
+                                        checked={switcher.checkedA}
+                                        onChange={handleChangeSwitcher}
+                                        name="checkedA"
+                                        color="primary"
+                                    />
+                                    }
+                                    label="Have new notifications"
+                                />
+                                <FormControlLabel
+                                    control={
+                                    <Switch
+                                        checked={switcher.checkedB}
+                                        onChange={handleChangeSwitcher}
+                                        name="checkedB"
+                                        color="primary"
+                                    />
+                                    }
+                                    label="You're sent a direct message"
+                                />
+                                <FormControlLabel
+                                    control={
+                                    <Switch
+                                        checked={switcher.checkedC}
+                                        onChange={handleChangeSwitcher}
+                                        name="checkedC"
+                                        color="primary"
+                                    />
+                                    }
+                                    label="Someone adds you as a connection"
+                                />
+                            </div>
+                            <div className={styles.notification_tab_right_bottom}>
+                                        <p>When to escalate emails?</p>
+                                <FormControlLabel
+                                    control={
+                                    <Switch
+                                        checked={switcher.checkedD}
+                                        onChange={handleChangeSwitcher}
+                                        name="checkedD"
+                                        color="primary"
+                                    />
+                                    }
+                                    label="Upon new order"
+                                />
+                                <FormControlLabel
+                                    control={
+                                    <Switch
+                                        checked={switcher.checkedE}
+                                        onChange={handleChangeSwitcher}
+                                        name="checkedE"
+                                        color="primary"
+                                    />
+                                    }
+                                    label="New membership approval"
+                                />
+                                <FormControlLabel
+                                    control={
+                                    <Switch
+                                        checked={switcher.checkedF}
+                                        onChange={handleChangeSwitcher}
+                                        name="checkedF"
+                                        color="primary"
+                                    />
+                                    }
+                                    label="Member registration"
+                                />
+                            </div>
                             </div>
                            
 
