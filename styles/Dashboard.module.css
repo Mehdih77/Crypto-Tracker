@@ -1,0 +1,71 @@
+.dashboard {
+  position: absolute;
+  top: 250px;
+  left: 700px;
+}
+.dashboard_card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  border-radius: 15px;
+  background: rgb(12, 12, 26);
+  border: 1px solid rgba(170, 170, 170, 0.363);
+}
+.dashboard_card_top {
+  background: rgb(2, 4, 26);
+  width: 400px;
+  height: 100px;
+  border-radius: 15px 15px 0 0;
+  position: absolute;
+  top: 0;
+  border: 1px solid rgba(170, 170, 170, 0.363);
+  border-bottom: unset;
+
+}
+.dashboard_card_top img {
+  width: 120px;
+  position: absolute;
+  top: 40px;
+  left: 145px;
+  border: 3px solid rgba(223, 223, 223, 0.719);
+  border-radius: 50%;
+}
+.dashboard_card_middle {
+  margin: 190px 0 20px 0;
+  text-align: center;
+  position: relative;
+}
+.dashboard_card_middle p {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+}
+.dashboard_card_middle p span {
+  font-weight: normal;
+  padding-left: 7px;
+}
+.dashboard_card_middle::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 1px;
+  background-color: rgba(170, 170, 170, 0.363);
+  left: -146px;
+}
+.dashboard_card_bottom {
+  display: flex;
+  text-align: center;
+}
+.dashboard_card_bottom p{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 19px;
+}
+.dashboard_card_bottom_body {
+  margin: 0 40px;
+}
+.dashboard_card_bottom_body p:nth-of-type(2) {
+  font-size: 13px;
+  margin-top: -15px;
+}
