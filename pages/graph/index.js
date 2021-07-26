@@ -17,11 +17,18 @@ export default function Home({coins}) {
 
     return (
         <>
-            <div className={styles.coin_app}>
-            <Charts />
-                <SearchBar onChange={handleChangeSearch}/>
-                <Coins coins={allCoins}/>
-            </div>
+                <div className={styles.coin_app}>
+                <div className={styles.charts_left}>
+                <Charts />
+                </div>
+                <div className={styles.charts_right}>
+                <Charts />
+                </div>
+                    <div className={styles.coins_table}>
+                        <SearchBar onChange={handleChangeSearch}/>
+                        <Coins coins={allCoins}/>
+                    </div>
+                </div>
         </>
     );
 }

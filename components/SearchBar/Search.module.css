@@ -1,8 +1,9 @@
 .coin_search {
-  margin-bottom: 65px;
+  margin-bottom: 25px;
   display: flex;
   align-items: center;
-  width: 400px;
+  width: 100%;
+  position: relative;
 }
 
 .coin_input {
@@ -19,4 +20,26 @@
   color: #e2e2e2;
   font-size: 18px;
 }
-
+.coin_search i {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  font-size: 24px;
+  color: rgb(156, 156, 156);
+}
+.coin_search button {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+.coin_search i {
+  font-size: 24px;
+  color: rgb(156, 156, 156);
+}
+.coin_search i:hover {
+  transform: scale(1.1);
+  transition: 0.2s linear;
+  color: rgb(192, 192, 192);
+}

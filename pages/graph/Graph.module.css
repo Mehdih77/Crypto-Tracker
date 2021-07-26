@@ -52,7 +52,6 @@
   /* background-color: rgb(34 37 88); */
   border-radius: 50%;
   box-shadow: 0px 0px 10px 5px rgb(34 37 88);
-
 }
 .high_24h {
   color: #13c7829b !important;
@@ -60,23 +59,74 @@
 .low_24h {
   color: #f00606b0 !important;
 }
-
-.coin_body{
+.coin_body {
   width: 1500px;
   padding: 30px 0 0 40px;
   color: rgb(218, 218, 218);
 }
-.coin_body::first-letter{
- text-transform: capitalize;
- font-size: 40px;
+.coin_body::first-letter {
+  text-transform: capitalize;
+  font-size: 40px;
 }
 
 /* main graph style */
 .coin_app {
-  padding-top: 70px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 10px;
-  color: #fff;
+  position: relative;
+  z-index: -1;
+}
+.charts_left,.charts_right {
+  position: absolute;
+  top: 40px;
+  left: 230px;
+  width: 600px;
+  padding: 20px;
+  border-radius: 20px;
+  background: linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 54%,
+    rgb(21, 25, 87) 100%
+  );
+
+  background: -moz-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 54%,
+    rgb(21, 25, 87) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 54%,
+    rgb(21, 25, 87) 100%
+  );
+}
+.charts_right {
+  left: 1030px;
+}
+.coins_table {
+  position: absolute;
+  top: 480px;
+  left: 230px;
+border-radius: 10px;  background: linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 54%,
+    rgb(21, 25, 87) 100%
+  );
+
+  background: -moz-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 54%,
+    rgb(21, 25, 87) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    55deg,
+    hsla(240, 26%, 11%, 1) 0%,
+    hsla(240, 26%, 11%, 1) 54%,
+    rgb(21, 25, 87) 100%
+  );
 }

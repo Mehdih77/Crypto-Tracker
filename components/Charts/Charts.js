@@ -39,10 +39,9 @@ const options = {
 
 const LineChart = () => (
   <>
-    <div className='col-md-6 mb-5'>
+    <div>
       <h1 className=''>Line Chart</h1>
       <Line data={data} options={options} />
-
     </div>
   </>
 );
