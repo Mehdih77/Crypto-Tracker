@@ -13,13 +13,6 @@
       "kind": "-",
       "price": "9600",
       "id": 2
-    },
-    {
-      "logo": "fas fa-dollar-sign",
-      "activity": "ddd",
-      "kind": "-",
-      "price": "300",
-      "id": 3
     }
   ]
 }

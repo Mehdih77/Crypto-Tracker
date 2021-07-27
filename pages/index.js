@@ -9,22 +9,25 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 
-
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export const getServerSideProps = async() => {
+export const getServerSideProps = async () => {
 
     const getActivitys = await get('/activitys').then(response => response.data)
-    const res = await fetch(`http://localhost:5000/activitys/1`)
-    const getPrices = await res.json()
-    // console.log(getPrices);
-    return {props: {
+    // const res = await fetch('http://localhost:5000/activitys');
+    // const getActivitys = await res.json();
+    // const res = await fetch(`http://localhost:5000/activitys/1`)
+    // const getPrices = await res.json()
+    return {
+        props: {
         getActivitys,
-        getPrices
+        // getPrices
         }}
 }
+// console.log( get('/activitys').then(response => response.data));
+
 
 export default function Home({getActivitys,getPrices}) {
 
@@ -33,18 +36,20 @@ export default function Home({getActivitys,getPrices}) {
     // const [getActivitys, setGetActivitys] = useState([])
     const [postActivitys, setPostActivitys] = useState({})
 
-    //GET
-    const getRecentActivitys = async () => {
-       await getActivitys;
-       await router.push('/')
-    }
-    //POST
+        //GET
+        const getRecentActivitys = () => {
+            getActivitys;
+            router.push('/')
+         }
+   
+         //POST
     const postRecentActivitys = async () => {
         const response = await post('/activitys', postActivitys);
         if (response) {
             getRecentActivitys()
         }
     }
+
     //Change Form Input Activity
     function handleChangeForm(e){
         setPostActivitys({
@@ -57,6 +62,7 @@ export default function Home({getActivitys,getPrices}) {
         getRecentActivitys()
     },[])
 
+    // Map for activitys
     const mapRecentActivity = getActivitys.map((activity) => {
         return (
             <>
@@ -68,15 +74,14 @@ export default function Home({getActivitys,getPrices}) {
             </>
         )
     })
-
-    // OPen & Close Modal Form
-const [open, setOpen] = useState(false);
-const handleClickOpen = () => {
-    setOpen(true);
-  };
-const handleClose = () => {
-    setOpen(false);
-  };
+      // Open & Close Modal Form
+      const [open, setOpen] = useState(false);
+      const handleClickOpen = () => {
+                setOpen(true);
+      };
+      const handleClose = () => {
+                setOpen(false);
+      };
 
 
 /////// FIIIIIIIIIIIIIIX MEEEEEEEEEEEEEEEEEEEEEEEEE ///////////
@@ -93,7 +98,7 @@ const handleClose = () => {
                 <div className='money-income'>
                 <div className='money-details'>
                 <p>Total Income</p>
-                <p>$ { getPrices.price }</p>
+                <p>$3400 </p>
                 <p>During last month</p>
                 </div>
                 <Circle type={'income'} value={'60%'} />
@@ -146,6 +151,7 @@ const handleClose = () => {
                             <DialogContentText id="alert-dialog-slide-description">
                                 <form onSubmit={postRecentActivitys} className='form-activity' >
                                 <select onChange={handleChangeForm} className='form-add-kind' name='logo'>
+                                    <option>Choose Coin Logo</option>
                                     <option value="fab fa-bitcoin">BitCoin</option>
                                     <option value="fab fa-ethereum">Ethereum</option>
                                     <option value="fas fa-euro-sign">Euro</option>
@@ -154,6 +160,7 @@ const handleClose = () => {
                                 </select>
                                 <input onChange={handleChangeForm} autoComplete='off' className='form-add-activity' type="text" name='activity' placeholder='Add Activity...' />
                                 <select onChange={handleChangeForm} className='form-add-kind' name='kind'>
+                                    <option>Choose + Or -</option>
                                     <option value="+">+</option>
                                     <option value="-">-</option>
                                 </select>
