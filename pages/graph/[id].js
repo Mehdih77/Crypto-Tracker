@@ -39,20 +39,37 @@ const Coin = ({data}) => {
 
 export default Coin;
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async ({params}) => {
 
-
-    const res = await fetch(`https://api.coingecko.com/api/v3/coins/${context.query.id}`)
+    const res = await fetch(`https://api.coingecko.com/api/v3/coins/${params.id}`)
 
     const data = await res.json()
 
     return {
-
         props: {
             data
-        }
+        },
+        revalidate: 1
     }
 
+}
+
+export const getStaticPaths = async () => {
+
+  const res = await fetch('https://api.coingecko.com/api/v3/coins')
+
+  const data = await res.json()
+
+  const paths = data.map(coin => {
+    return {
+      params: { id: coin.id }
+    }
+  })
+
+  return {
+    paths,
+    fallback: false
+  }
 
 }
 
