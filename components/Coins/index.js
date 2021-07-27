@@ -1,12 +1,12 @@
 import styles from './Coins.module.css';
 import Link from 'next/link';
-
+import Image from 'next/image'
 const Coins = ({coins}) => {
     const coinsMap = coins.map(coin => {
         return (
-            <Link key={coin.id} href={`/graph/${coin.id}`}>
+            <Link passHref key={coin.id} href={`/graph/${coin.id}`}>
             <tr className={styles.table_row}>
-            <td><img className={styles.img} src={coin.image} alt={coin.name} /></td>
+            <td><Image width={40} height={40} src={coin.image} alt={coin.name} /></td>
             <td>{coin.name}</td>
             <td className={styles.coin_symbol}>{coin.symbol}</td>
             <td>${coin.current_price}</td>

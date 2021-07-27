@@ -1,11 +1,14 @@
 import styles from '../styles/Dashboard.module.css'
+import Image from 'next/image'
 
 function Dashboard() {
     return (
         <div className={styles.dashboard}>
                 <div className={styles.dashboard_card}>
                     <div className={styles.dashboard_card_top}>
-                        <img src="./img/user.png" alt="user" />
+                    <div className={styles.dashboard_card_top_img}>
+                    <Image width={130} height={130} src="/img/user.png" alt="user" />
+                    </div>
                         <button className={styles.log_in_out}>Log Out</button>
                     </div>
                     <div className={styles.dashboard_card_middle}>
@@ -26,7 +29,7 @@ function Dashboard() {
                             <div className={styles.dashboard_card_right_contact}>
                                 <span>Contact with Mehdi:</span>
                                 <div>
-                                <a target='_blank' href="https://www.instagram.com/frontend.plus/"><i className="fab fa-instagram"></i></a>
+                                <a rel='noreferrer' target='_blank' href="https://www.instagram.com/frontend.plus/"><i className="fab fa-instagram"></i></a>
                                 <a href=""><i className="fab fa-telegram-plane"></i></a>
                                 <a href=""><i className="fab fa-whatsapp"></i></a>
                                 <a href=""><i className="fab fa-linkedin-in"></i></a>

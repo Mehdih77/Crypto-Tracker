@@ -32,17 +32,20 @@
 
 /* PROFILE TAB */
 .profile_tab,
-.security_tab, .notification_tab {
+.security_tab,
+.notification_tab {
   display: flex;
 }
 
 /*  TAB LEFT */
 .profile_tab_left,
-.security_tab_left, .notification_tab_left {
+.security_tab_left,
+.notification_tab_left {
   margin-right: 60px;
 }
 .profile_picture,
-.credir_card_changing, .notification_receive {
+.credir_card_changing,
+.notification_receive {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -54,22 +57,26 @@
   width: 500px;
   height: 400px;
 }
-.notification_receive{
+.notification_receive {
   width: 700px;
-  align-items:flex-start;
+  align-items: flex-start;
   justify-content: flex-start;
 }
 .profile_picture:hover,
-.credir_card_changing:hover, .security_tab_bottom:hover, .notification_receive:hover {
+.credir_card_changing:hover,
+.security_tab_bottom:hover,
+.notification_receive:hover {
   box-shadow: 0px 0px 3px 0px rgba(199, 199, 199);
 }
 .profile_picture p,
-.credir_card_changing p, .notification_receive p {
+.credir_card_changing p,
+.notification_receive p {
   position: absolute;
   top: 16px;
 }
 .profile_picture p::after,
-.credir_card_changing p::after, .notification_receive p::after {
+.credir_card_changing p::after,
+.notification_receive p::after {
   content: "";
   width: 499px;
   height: 1px;
@@ -78,17 +85,16 @@
   top: 45px;
   left: -177px;
 }
-.notification_receive p::after{
+.notification_receive p::after {
   width: 698px;
   left: -30px;
 }
 .credir_card_changing p::after {
   left: -186px;
 }
-.profile_picture img,
-.credir_card_changing img {
-  width: 120px;
-  top: 110px;
+.profile_picture_img,
+.credir_card_img {
+  top: 100px;
   position: absolute;
 }
 .profile_picture .tab1_button,
@@ -111,7 +117,8 @@
 
 /*  TAB RIGHT */
 .profile_tab_right,
-.security_tab_right, .notification_tab_right {
+.security_tab_right,
+.notification_tab_right {
   width: 1100px;
   height: 550px;
   position: relative;
@@ -122,23 +129,27 @@
   border-radius: 10px;
   padding: 30px;
 }
-.notification_tab_right{
+.notification_tab_right {
   width: 900px;
 }
 .security_tab_right {
   height: 400px;
 }
 .profile_tab_right:hover,
-.security_tab_right:hover, .notification_tab_right:hover{
+.security_tab_right:hover,
+.notification_tab_right:hover {
   box-shadow: 0px 0px 3px 0px rgba(199, 199, 199);
 }
 .profile_tab_right_title,
-.security_tab_right_title, .notification_tab_right_title, .notification_tab_right_title {
+.security_tab_right_title,
+.notification_tab_right_title,
+.notification_tab_right_title {
   position: absolute;
   top: 16px;
 }
 .profile_tab_right_title::after,
-.security_tab_right_title::after, .notification_tab_right_title::after {
+.security_tab_right_title::after,
+.notification_tab_right_title::after {
   content: "";
   width: 1090px;
   height: 1px;
@@ -147,7 +158,7 @@
   top: 45px;
   left: -30px;
 }
-.notification_tab_right_title::after{
+.notification_tab_right_title::after {
   width: 890px;
 }
 
@@ -265,11 +276,11 @@
   padding-bottom: 10px;
 }
 .delete_account_title::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 1650px;
   height: 1px;
-  background-color: rgba(199, 199, 199, 0.26) ;
+  background-color: rgba(199, 199, 199, 0.26);
   top: 40px;
   left: -20px;
 }
@@ -292,20 +303,21 @@
 }
 
 /* Notification Tab */
-.notification_receive_boxes{
+.notification_receive_boxes {
   display: flex;
   flex-direction: column;
   margin-top: 50px;
 }
-.notification_tab_right_top{
+.notification_tab_right_top {
   display: flex;
   flex-direction: column;
 }
-.notification_tab_right_bottom{
+.notification_tab_right_bottom {
   display: flex;
   flex-direction: column;
   margin-top: 50px;
 }
-.notification_tab_right_top p,.notification_tab_right_bottom p{
+.notification_tab_right_top p,
+.notification_tab_right_bottom p {
   font-weight: bold;
 }

@@ -39,7 +39,6 @@ export default function Home({getActivitys,getPrices}) {
         //GET
         const getRecentActivitys = () => {
             getActivitys;
-            router.push('/')
          }
    
          //POST
@@ -60,7 +59,8 @@ export default function Home({getActivitys,getPrices}) {
     //Update Form Activity
     useEffect(() => {
         getRecentActivitys()
-    },[])
+        router.push('/')
+    },[getRecentActivitys()])
 
     // Map for activitys
     const mapRecentActivity = getActivitys.map((activity) => {

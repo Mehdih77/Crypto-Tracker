@@ -29,7 +29,7 @@
   border: 1px solid rgba(170, 170, 170, 0.363);
   border-bottom: unset;
 }
-.dashboard_card_top img {
+.dashboard_card_top .dashboard_card_top_img > * {
   width: 130px;
   position: absolute;
   top: 140px;

@@ -11,6 +11,7 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Switch from '@material-ui/core/Switch';
+import Image from 'next/image'
 
 function TabPanel(props) {
     const {
@@ -125,7 +126,7 @@ export default function Setting() {
                         <div className={styles.profile_tab_left}>
                             <div className={styles.profile_picture}>
                                 <p>Profile Picture</p>
-                                <img src='./img/user.png'/>
+                               <div className={styles.profile_picture_img}><Image width={130} height={130} src='/img/user.png' alt='user'/></div>
                                 <button className={styles.tab1_button}>Upload/Change Avatar</button>
                             </div>
                         </div>
@@ -158,7 +159,7 @@ export default function Setting() {
                         <div className={styles.security_tab_left}>
                             <div className={styles.credir_card_changing}>
                                 <p>Credit Cards</p>
-                                <img src='./img/Credit-Card-Users.png'/>
+                                <div className={styles.credir_card_img}><Image width={150} height={140} src='/img/Credit-Card-Users.png' alt='credit-card'/></div>
                                 <button>Add/Remove Cards</button>
                             </div>
                         </div>

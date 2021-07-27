@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import styles from '../styles/404.module.css'
+import Image from 'next/image'
 
 function NotFoundPage() {
 
@@ -11,11 +12,15 @@ function NotFoundPage() {
         setTimeout(() => {
             router.push('/')
         }, 3000);
-    }, [])
+    }, [router])
    
 
     return (
-        <img className={styles.img} src="/img/404.jpg" alt="404 Error NotFoundPage" />
+        <>
+            <div className={styles.img_404} >
+            <Image layout='fill' src="/img/404.jpg" alt="404 Error NotFoundPage" />
+            </div>
+        </>
     )
 }
 

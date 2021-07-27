@@ -1,6 +1,7 @@
 import styles from './Navbar.module.css'
 import Link from 'next/link'
 import { useState } from 'react'
+import Image from 'next/image'
 
 function Navbar() {
 
@@ -18,7 +19,7 @@ function Navbar() {
               <Link href='/charts'><a className='position-relative'><i className="fas fa-chart-pie"></i></a></Link>
               <Link href='/setting'><a><i className="fas fa-cog"></i></a></Link>
               </div>
-              <Link href='/dashboard'><a><img className={styles.user_img} src="/img/user.png" alt="user" /></a></Link>
+              <Link href='/dashboard'><a className={styles.user_img} ><Image width={70} height={70} src="/img/user.png" alt="user" /></a></Link>
           </nav>
           <button onClick={() => setIsMobile(!isMobile)}><i className={isMobile ? "fas fa-times" : 'fas fa-bars'}></i></button>
 

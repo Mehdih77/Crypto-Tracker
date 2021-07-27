@@ -1,5 +1,6 @@
-.img{
+.img_404{
     position: relative;
     width: 100%;
     height: 100vh;
+    z-index: 99;
 }

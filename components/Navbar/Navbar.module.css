@@ -26,7 +26,7 @@
   width: 120px;
 }
 .navbar nav div {
-  position: fixed;
+  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -42,17 +42,16 @@
   margin-top: 40px;
 }
 .navbar nav div a:hover,
-.user_img:hover,
+.user_img > *:hover,
 .navbar button:hover {
   transform: scale(1.2);
   transition: 0.2s linear;
 }
 
-.user_img {
+.user_img > * {
   position: fixed;
-  bottom: 10%;
+  bottom: -22%;
   left: 20px;
-  width: 60px;
 }
 
 .coin_logo {
@@ -64,8 +63,8 @@
 
 .nav_badge{
   position: absolute;
-  top: 25px;
-  right: 25px;
+  top: 27px;
+  right: 35px;
   background-color: rgb(168, 3, 31);
   border-radius: 50%;
   width: 23px;
@@ -109,8 +108,6 @@
   .user_img {
     position: fixed;
     bottom: 7%;
-    left: 30px;
-    width: 60px;
   }
   .navbar nav div a:nth-child(1) {
     margin-top: 90px;

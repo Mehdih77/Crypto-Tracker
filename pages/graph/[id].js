@@ -1,4 +1,5 @@
 import styles from './Graph.module.css';
+import Image from 'next/image'
 
 const Coin = ({data}) => {
 
@@ -6,7 +7,9 @@ const Coin = ({data}) => {
     <>
       <div className={styles.coin_page}>
         <div className={styles.coin_container}>
-          <img src={data.image.large} alt={data.name} className={styles.coin_image}/>
+        <div  className={styles.coin_image}>
+        {/* <Image width={210} height={210} src={data.image.large} alt={data.name}/> */}
+        </div>
           <div>
               <p><span>Name:</span> {data.name}</p>
               <p><span>Symbol:</span> {data.symbol.toUpperCase()}</p>
