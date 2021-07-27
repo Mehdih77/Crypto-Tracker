@@ -46,11 +46,13 @@
   color: rgb(156, 156, 156);
   padding-right: 4px;
 }
-.coin_image {
-  width: 210px;
+.coin_image{
   margin-right: 40px;
+}
+.coin_image > * {
+  width: 210px;
   border-radius: 50%;
-  box-shadow: 0px 0px 10px 5px rgb(34 37 88);
+  box-shadow: 0px 0px 10px 6px rgb(34 37 88);
 }
 .high_24h {
   color: #13c7829b !important;

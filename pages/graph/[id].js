@@ -8,7 +8,7 @@ const Coin = ({data}) => {
       <div className={styles.coin_page}>
         <div className={styles.coin_container}>
         <div  className={styles.coin_image}>
-        {/* <Image width={210} height={210} src={data.image.large} alt={data.name}/> */}
+        <Image width={210} height={210} src={data.image.large} alt={data.name}/>
         </div>
           <div>
               <p><span>Name:</span> {data.name}</p>
