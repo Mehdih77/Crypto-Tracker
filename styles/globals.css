@@ -79,9 +79,9 @@ body {
 /* Credit Card */
 .my-credit-card {
   position: absolute;
-  left: 1450px;
+  left: 1380px;
   top: 50px;
-  width: 350px;
+  width: 440px;
   height: 226px;
   padding: 20px;
   border-radius: 25px;
@@ -107,42 +107,44 @@ body {
   );
 }
 .my-credit-card-name {
-  padding-left: 10px;
+  padding-left: 15px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
   letter-spacing: 1px;
+  font-size: 22px;
 }
 .my-credit-card i.fa-credit-card {
   font-size: 40px;
-  padding-left: 10px;
+  padding-left: 15px;
 }
 .my-credit-card-number {
   padding-top: 20px;
 }
 .my-credit-card-number span {
-  padding-left: 10px;
+  padding-left: 15px;
 }
 .my-credit-card-bottom {
   display: flex;
   justify-content: space-between;
-  padding-left: 10px;
+  padding-left: 15px;
   position: relative;
 }
 .my-credit-card-bottom p {
-  font-size: 14px;
+  font-size: 15px;
   padding-top: 5px;
 }
 .my-credit-card-bottom i {
-  font-size: 22px;
+  font-size: 24px;
+  margin-top: -3px;
   color: rgb(255, 255, 255);
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 .my-credit-card-bottom::before {
   content: "";
   position: absolute;
-  width: 113%;
+  width: 110%;
   height: 2px;
-  top: -9px;
+  top: -11px;
   left: -19px;
   background-color: #201660;
 }
@@ -180,11 +182,12 @@ body {
 /* Recent Activity */
 .recent-activity {
   position: absolute;
-  left: 1450px;
+  left: 1380px;
   top: 340px;
-  width: 350px;
+  width: 440px;
   height: 570px;
   overflow-y: scroll;
+  overflow-x: hidden;
   padding: 20px;
   border-radius: 25px;
   background: linear-gradient(
@@ -248,12 +251,14 @@ body {
 }
 .recent-activity-details .recent-activity-name {
   font-size: 19px;
+  width: 150px;
   word-break: break-all;
 }
 .recent-activity-details .recent-activity-qty {
   font-weight: bold;
   word-break: break-all;
 }
+
 .recent-activity-qty-green {
   color: #13c783;
   font-weight: bold;
@@ -266,8 +271,17 @@ body {
   font-size: 23px;
   padding: 0 6px;
 }
+.fa-trash{
+  cursor: pointer;
+  font-size: 20px!important;
+  margin-top: 7px;
+}
+.fa-trash:hover{
+  color: #e43434b7;
+  transition: 0.2s linear;
+}
 
-/* Form Activity */
+/* Modal Form Activity */
 .form-title {
   color: #101012;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;

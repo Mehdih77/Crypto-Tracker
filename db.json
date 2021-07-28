@@ -1,20 +1,6 @@
 {
   "activitys": [
     {
-      "logo": "fas fa-dollar-sign",
-      "activity": "Buy Dollar",
-      "kind": "expense",
-      "price": "4000",
-      "id": 1
-    },
-    {
-      "logo": "fab fa-ethereum",
-      "activity": "buy ethereum",
-      "kind": "expense",
-      "price": "9600",
-      "id": 2
-    },
-    {
       "logo": "fab fa-ethereum",
       "activity": "buy ethereum",
       "kind": "income",
@@ -29,11 +15,32 @@
       "id": 4
     },
     {
-      "activity": "rrrr",
-      "price": "7000",
       "kind": "expense",
-      "logo": "fab fa-ethereum",
-      "id": 5
+      "logo": "fab fa-bitcoin",
+      "activity": "ff",
+      "price": "8000",
+      "id": 6
+    },
+    {
+      "activity": "buy",
+      "price": "4000",
+      "kind": "expense",
+      "logo": "fas fa-euro-sign",
+      "id": 7
+    },
+    {
+      "activity": "buy",
+      "price": "5000",
+      "kind": "expense",
+      "logo": "fab fa-bitcoin",
+      "id": 8
+    },
+    {
+      "activity": "ttt",
+      "price": "300",
+      "kind": "income",
+      "logo": "fas fa-yen-sign",
+      "id": 9
     }
   ]
 }

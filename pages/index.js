@@ -1,7 +1,7 @@
 import Circle from "../components/ProgressBar/Circle";
 import Line_Home from '../components/Charts/Line_Home'
 import { useRouter } from "next/router";
-import {get , post} from '../lib/http'
+import {get , post, del} from '../lib/http'
 import React, {useState, useEffect} from "react";
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -48,6 +48,15 @@ export default function Home({getActivitys,getExpense,getIncome}) {
             getRecentActivitys()
         }
     }
+        // Delete
+        const deleteRecentActivitys = async (id) => {
+            const response = await del(`/activitys/${id}`)
+            if (response) {
+                getRecentActivitys()
+                router.push('/')
+            }
+        }
+
 
     //Change Form Input Activity
     function handleChangeForm(e){
@@ -69,7 +78,12 @@ export default function Home({getActivitys,getExpense,getIncome}) {
             <div key={activity.id} className='recent-activity-details'>
                     <i className={activity.logo}></i> 
                     <p className='recent-activity-name'>{activity.activity}</p>
-                    <p className='recent-activity-qty'> <span className={activity.kind === 'income' ? 'recent-activity-qty-green' : 'recent-activity-qty-red'}>{activity.kind === 'income' ? '+' : '-'}</span>${activity.price}</p>
+                    <p className='recent-activity-qty'>
+                    <span className={activity.kind === 'income' ? 'recent-activity-qty-green' : 'recent-activity-qty-red'}>
+                    {activity.kind === 'income' ? '+' : '-'}
+                    </span>
+                    ${activity.price}</p>
+                    <i onClick={() => deleteRecentActivitys(activity.id)} className="fas fa-trash"></i>
             </div>
             </>
         )
@@ -78,8 +92,11 @@ export default function Home({getActivitys,getExpense,getIncome}) {
     // Calculate Income & Expense & Bonus
     const calcIncome = getIncome.reduce((acc,curr) => acc + Number(curr.price) ,0);
     const calcExpense = getExpense.reduce((acc,curr) => acc + Number(curr.price) ,0);
-    // The Price $18500 & $8000 set by default
-    const calcBonus = (18500 + calcIncome) - (8000 +calcExpense);
+    const calcBonus = calcIncome - calcExpense;
+    // Calculate Expense & bonus Percentage
+    const expensePercent = ((calcExpense*100) / (calcIncome)).toFixed(0) ;
+    const bonusPercent = (100 - expensePercent).toFixed(0);
+
 
       // Open & Close Modal Form
       const [open, setOpen] = useState(false);
@@ -97,27 +114,25 @@ export default function Home({getActivitys,getExpense,getIncome}) {
                 <div className='money-income'>
                 <div className='money-details'>
                 <p>Total Income</p>
-                <p>${18500 + calcIncome}</p>
+                <p>${calcIncome}</p>
                 <p>During last month</p>
                 </div>
-                <Circle type={'income'} value={'60%'} />
+                <Circle type={'income'} value={'100%'} />
                 </div>
-
                 <div className='money-expense'>
                 <div className='money-details'>
                 <p>Total Expense</p>
-                <p>${8000 +calcExpense}</p>
+                <p>${calcExpense}</p>
                 <p>During 2 months</p>
                 </div>
-                <Circle type={"expense"} value={'55%'} /></div>
-
+                <Circle type={"expense"} value={`${expensePercent}%`} /></div>
                 <div className='money-bonus'>
                 <div className='money-details'>
                 <p>Total Bonus</p>
                 <p>$ {calcBonus}</p>
                 <p>During 5 months</p>
                 </div>
-                <Circle type={"bonus"} value={'70%'} /></div>
+                <Circle type={"bonus"} value={`${bonusPercent}%`} /></div>
                 
                 </div>
                 <div className='my-credit-card'>
@@ -172,21 +187,6 @@ export default function Home({getActivitys,getExpense,getIncome}) {
                         </div>
                     </div>
                     <div className='recent-activity-bottom'>
-                        <div className='recent-activity-details'>
-                            <i className="fab fa-bitcoin"></i>
-                            <p className='recent-activity-name'>Sold BitCoin</p>
-                            <p className='recent-activity-qty'> <span className='recent-activity-qty-green'>+</span> $12000</p>
-                        </div>
-                        <div className='recent-activity-details'>
-                            <i className="fab fa-ethereum"></i> 
-                            <p className='recent-activity-name'>Buy Ethereum</p>
-                            <p className='recent-activity-qty'> <span className='recent-activity-qty-red'>-</span> $8000</p>
-                        </div>
-                        <div className='recent-activity-details'>
-                            <i className="fas fa-dollar-sign"></i> 
-                            <p className='recent-activity-name'>Save Dollar</p>
-                            <p className='recent-activity-qty'> <span className='recent-activity-qty-green'>+</span> $6500</p>
-                        </div>
                         {mapRecentActivity}
                     </div>
                 </div>
