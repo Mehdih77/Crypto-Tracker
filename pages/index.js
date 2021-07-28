@@ -16,20 +16,20 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export const getServerSideProps = async () => {
 
     const getActivitys = await get('/activitys').then(response => response.data)
-    // const res = await fetch('http://localhost:5000/activitys');
-    // const getActivitys = await res.json();
-    // const res = await fetch(`http://localhost:5000/activitys/1`)
-    // const getPrices = await res.json()
+
+    const getExpense = await get('/activitys?kind=expense').then(response => response.data)
+    const getIncome = await get('/activitys?kind=income').then(response => response.data)
+
     return {
         props: {
         getActivitys,
-        // getPrices
+        getExpense,
+        getIncome
         }}
 }
-// console.log( get('/activitys').then(response => response.data));
 
 
-export default function Home({getActivitys,getPrices}) {
+export default function Home({getActivitys,getExpense,getIncome}) {
 
     const router = useRouter();
 
@@ -42,7 +42,7 @@ export default function Home({getActivitys,getPrices}) {
          }
    
          //POST
-    const postRecentActivitys = async () => {
+        const postRecentActivitys = async () => {
         const response = await post('/activitys', postActivitys);
         if (response) {
             getRecentActivitys()
@@ -66,14 +66,21 @@ export default function Home({getActivitys,getPrices}) {
     const mapRecentActivity = getActivitys.map((activity) => {
         return (
             <>
-            <div key={activity.price} className='recent-activity-details'>
+            <div key={activity.id} className='recent-activity-details'>
                     <i className={activity.logo}></i> 
                     <p className='recent-activity-name'>{activity.activity}</p>
-                    <p className='recent-activity-qty'> <span className={activity.kind === '+' ? 'recent-activity-qty-green' : 'recent-activity-qty-red'}>{activity.kind}</span>${activity.price}</p>
+                    <p className='recent-activity-qty'> <span className={activity.kind === 'income' ? 'recent-activity-qty-green' : 'recent-activity-qty-red'}>{activity.kind === 'income' ? '+' : '-'}</span>${activity.price}</p>
             </div>
             </>
         )
     })
+
+    // Calculate Income & Expense & Bonus
+    const calcIncome = getIncome.reduce((acc,curr) => acc + Number(curr.price) ,0);
+    const calcExpense = getExpense.reduce((acc,curr) => acc + Number(curr.price) ,0);
+    // The Price $18500 & $8000 set by default
+    const calcBonus = (18500 + calcIncome) - (8000 +calcExpense);
+
       // Open & Close Modal Form
       const [open, setOpen] = useState(false);
       const handleClickOpen = () => {
@@ -83,14 +90,6 @@ export default function Home({getActivitys,getPrices}) {
                 setOpen(false);
       };
 
-
-/////// FIIIIIIIIIIIIIIX MEEEEEEEEEEEEEEEEEEEEEEEEE ///////////
-
-//   const calculatePrice = getPrices.map((calc,index) => {
-//          return (calc[0].price - 1000)
-//   })
-
-
     return (
         <>
             <div className='home_style'>
@@ -98,7 +97,7 @@ export default function Home({getActivitys,getPrices}) {
                 <div className='money-income'>
                 <div className='money-details'>
                 <p>Total Income</p>
-                <p>$3400 </p>
+                <p>${18500 + calcIncome}</p>
                 <p>During last month</p>
                 </div>
                 <Circle type={'income'} value={'60%'} />
@@ -107,7 +106,7 @@ export default function Home({getActivitys,getPrices}) {
                 <div className='money-expense'>
                 <div className='money-details'>
                 <p>Total Expense</p>
-                <p>3600K</p>
+                <p>${8000 +calcExpense}</p>
                 <p>During 2 months</p>
                 </div>
                 <Circle type={"expense"} value={'55%'} /></div>
@@ -115,7 +114,7 @@ export default function Home({getActivitys,getPrices}) {
                 <div className='money-bonus'>
                 <div className='money-details'>
                 <p>Total Bonus</p>
-                <p>7500K</p>
+                <p>$ {calcBonus}</p>
                 <p>During 5 months</p>
                 </div>
                 <Circle type={"bonus"} value={'70%'} /></div>
@@ -160,9 +159,9 @@ export default function Home({getActivitys,getPrices}) {
                                 </select>
                                 <input onChange={handleChangeForm} autoComplete='off' className='form-add-activity' type="text" name='activity' placeholder='Add Activity...' />
                                 <select onChange={handleChangeForm} className='form-add-kind' name='kind'>
-                                    <option>Choose + Or -</option>
-                                    <option value="+">+</option>
-                                    <option value="-">-</option>
+                                    <option>Choose Income Or Expense</option>
+                                    <option value="income">+ Income</option>
+                                    <option value="expense">- Expense</option>
                                 </select>
                                 <input onChange={handleChangeForm} className='form-price' type="number" name='price' placeholder='Add Price...' />
                                 <button type='submit' className='form-button'>Add</button>
@@ -182,16 +181,6 @@ export default function Home({getActivitys,getPrices}) {
                             <i className="fab fa-ethereum"></i> 
                             <p className='recent-activity-name'>Buy Ethereum</p>
                             <p className='recent-activity-qty'> <span className='recent-activity-qty-red'>-</span> $8000</p>
-                        </div>
-                        <div className='recent-activity-details'>
-                            <i className="fas fa-euro-sign"></i> 
-                            <p className='recent-activity-name'>Save Euro</p>
-                            <p className='recent-activity-qty'> <span className='recent-activity-qty-green'>+</span> $7000</p>
-                        </div>
-                        <div className='recent-activity-details'>
-                            <i className="fas fa-yen-sign"></i>
-                            <p className='recent-activity-name'>Sold Yen</p>
-                            <p className='recent-activity-qty'> <span className='recent-activity-qty-green'>+</span> $15000</p>
                         </div>
                         <div className='recent-activity-details'>
                             <i className="fas fa-dollar-sign"></i> 

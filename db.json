@@ -3,24 +3,37 @@
     {
       "logo": "fas fa-dollar-sign",
       "activity": "Buy Dollar",
-      "kind": "-",
+      "kind": "expense",
       "price": "4000",
       "id": 1
     },
     {
       "logo": "fab fa-ethereum",
       "activity": "buy ethereum",
-      "kind": "-",
+      "kind": "expense",
       "price": "9600",
       "id": 2
     },
     {
+      "logo": "fab fa-ethereum",
+      "activity": "buy ethereum",
+      "kind": "income",
+      "price": "5000",
       "id": 3
     },
     {
-      "activity": "4",
-      "price": "4",
+      "logo": "fas fa-dollar-sign",
+      "activity": "sold",
+      "kind": "income",
+      "price": "7000",
       "id": 4
+    },
+    {
+      "activity": "rrrr",
+      "price": "7000",
+      "kind": "expense",
+      "logo": "fab fa-ethereum",
+      "id": 5
     }
   ]
 }
