@@ -15,44 +15,44 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export const getServerSideProps = async () => {
 
-    const getActivitys = await get('/activitys').then(response => response.data)
+    const getActivities = await get('/Activities').then(response => response.data)
 
-    const getExpense = await get('/activitys?kind=expense').then(response => response.data)
-    const getIncome = await get('/activitys?kind=income').then(response => response.data)
+    const getExpense = await get('/Activities?kind=expense').then(response => response.data)
+    const getIncome = await get('/Activities?kind=income').then(response => response.data)
 
     return {
         props: {
-        getActivitys,
+        getActivities,
         getExpense,
         getIncome
         }}
 }
 
 
-export default function Home({getActivitys,getExpense,getIncome}) {
+export default function Home({getActivities,getExpense,getIncome}) {
 
     const router = useRouter();
 
-    // const [getActivitys, setGetActivitys] = useState([])
-    const [postActivitys, setPostActivitys] = useState({})
+    // const [getActivities, setGetActivities] = useState([])
+    const [postActivities, setPostActivities] = useState({})
 
         //GET
-        const getRecentActivitys = () => {
-            getActivitys;
+        const getRecentActivities = () => {
+            getActivities;
          }
    
          //POST
-        const postRecentActivitys = async () => {
-        const response = await post('/activitys', postActivitys);
+        const postRecentActivities = async () => {
+        const response = await post('/Activities', postActivities);
         if (response) {
-            getRecentActivitys()
+            getRecentActivities()
         }
     }
         // Delete
-        const deleteRecentActivitys = async (id) => {
-            const response = await del(`/activitys/${id}`)
+        const deleteRecentActivities = async (id) => {
+            const response = await del(`/Activities/${id}`)
             if (response) {
-                getRecentActivitys()
+                getRecentActivities()
                 router.push('/')
             }
         }
@@ -60,19 +60,19 @@ export default function Home({getActivitys,getExpense,getIncome}) {
 
     //Change Form Input Activity
     function handleChangeForm(e){
-        setPostActivitys({
-            ...postActivitys,
+        setPostActivities({
+            ...postActivities,
             [e.target.name] : e.target.value
         })
     }
     //Update Form Activity
     useEffect(() => {
-        getRecentActivitys()
+        getRecentActivities()
         router.push('/')
-    },[getRecentActivitys()])
+    },[])
 
-    // Map for activitys
-    const mapRecentActivity = getActivitys.map((activity) => {
+    // Map for Activities
+    const mapRecentActivity = getActivities.map((activity) => {
         return (
             <>
             <div key={activity.id} className='recent-activity-details'>
@@ -83,7 +83,7 @@ export default function Home({getActivitys,getExpense,getIncome}) {
                     {activity.kind === 'income' ? '+' : '-'}
                     </span>
                     ${activity.price}</p>
-                    <i onClick={() => deleteRecentActivitys(activity.id)} className="fas fa-trash"></i>
+                    <i onClick={() => deleteRecentActivities(activity.id)} className="fas fa-trash"></i>
             </div>
             </>
         )
@@ -163,7 +163,7 @@ export default function Home({getActivitys,getExpense,getIncome}) {
                             <DialogTitle id="alert-dialog-slide-title"><p className='form-title'>Add Your Activity...</p></DialogTitle>
                             <DialogContent>
                             <DialogContentText id="alert-dialog-slide-description">
-                                <form onSubmit={postRecentActivitys} className='form-activity' >
+                                <form onSubmit={postRecentActivities} className='form-activity' >
                                 <select onChange={handleChangeForm} className='form-add-kind' name='logo'>
                                     <option>Choose Coin Logo</option>
                                     <option value="fab fa-bitcoin">BitCoin</option>

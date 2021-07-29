@@ -1,5 +1,5 @@
 {
-  "activitys": [
+  "activities": [
     {
       "logo": "fab fa-ethereum",
       "activity": "buy ethereum",
@@ -23,24 +23,24 @@
     },
     {
       "activity": "buy",
-      "price": "4000",
-      "kind": "expense",
-      "logo": "fas fa-euro-sign",
-      "id": 7
-    },
-    {
-      "activity": "buy",
       "price": "5000",
       "kind": "expense",
       "logo": "fab fa-bitcoin",
       "id": 8
     },
     {
-      "activity": "ttt",
-      "price": "300",
-      "kind": "income",
+      "activity": "hhh",
       "logo": "fas fa-yen-sign",
+      "price": "5000",
+      "kind": "income",
       "id": 9
+    },
+    {
+      "logo": "fab fa-ethereum",
+      "activity": "g",
+      "price": "2000",
+      "kind": "expense",
+      "id": 10
     }
   ]
 }

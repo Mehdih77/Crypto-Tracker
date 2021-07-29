@@ -12,6 +12,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Switch from '@material-ui/core/Switch';
 import Image from 'next/image'
+import { useEffect } from 'react';
 
 function TabPanel(props) {
     const {
@@ -49,6 +50,37 @@ function a11yProps(index) {
 
 export default function Setting() {
 
+    const [accountForm, setAccountForm] = React.useState({
+        name: '',
+        email:'',
+        company:'',
+        country:'',
+        phone:'',
+        birthday:''
+    })
+    function handleChangeAccountForm(e) {
+        setAccountForm({
+            ...accountForm,
+            [e.target.name]: e.target.value,
+        })
+    }
+    function handleButtonAccountForm() {
+        localStorage.setItem('accountform', JSON.stringify(accountForm))
+    }
+
+    // Update and GET item from LocaleStorage
+    useEffect(() => {
+        const token = localStorage.getItem('accountform')
+        const switchers = localStorage.getItem('switcher')
+        if (token) {
+            setAccountForm(JSON.parse(token))
+        }
+        if (switchers) {
+            setSwitcher(JSON.parse(switchers))
+        }
+    }, [])
+
+
     // Password 
     const [values, setValues] = React.useState({
         password: '',
@@ -69,13 +101,10 @@ export default function Setting() {
 
       // Tabs Change
     const [value,setValue] = React.useState(0);
-
     const handleChangeTab = (event , newValue) => {
         setValue(newValue);
     };
-
-
-    // Delete Account
+    // Delete Account Alert
     function handleDeleteAccount(){
         if (confirm('Are You Sure To Delete Your Account?')) {
             alert('Your Account Deleted')
@@ -83,7 +112,6 @@ export default function Setting() {
             alert(' :) ')
         }
     }
-
     // CheckBox
         const [state, setState] = React.useState({
           checkedA: true,
@@ -91,11 +119,9 @@ export default function Setting() {
           checkedC: false,
           checkedD: false
         });
-      
         const handleChangeCheckBox = (event) => {
           setState({ ...state, [event.target.name]: event.target.checked });
         };
-
         //Switchers
         const [switcher, setSwitcher] = React.useState({
             checkedA: true,
@@ -105,10 +131,16 @@ export default function Setting() {
             checkedE: true,
             checkedF: false,
           });
-        
+
           const handleChangeSwitcher = (event) => {
-            setSwitcher({ ...switcher, [event.target.name]: event.target.checked });
+            // localStorage.setItem('switcher', JSON.stringify(switcher))
+            setSwitcher({ 
+                ...switcher,
+                 [event.target.name]: event.target.checked 
+                });
+                console.log(switcher);
           };
+
 
     return (
         <div className={styles.setting_section}>
@@ -133,19 +165,19 @@ export default function Setting() {
                         <div className={styles.profile_tab_right}>
                             <div>
                             <p className={styles.profile_tab_right_title}>Edit Account Details</p>
-                            <form
+                            <form onSubmit={handleButtonAccountForm}
                                 className={styles.setting_form} autoComplete="off">
-                                <input className='w-100' type="text" placeholder='Name' />
-                                <input className='w-100' type="email" placeholder='Email Address' />
+                                <input onChange={handleChangeAccountForm} value={accountForm.name} className='w-100' name='name' type="text" placeholder='Name' />
+                                <input onChange={handleChangeAccountForm} value={accountForm.email} className='w-100' name='email' type="email" placeholder='Email Address' />
                                 <div className={styles.setting_form_small_inputs}>
-                                <input type="text" placeholder='Company' />
-                                <input type="text" placeholder='Country' />
+                                <input onChange={handleChangeAccountForm} value={accountForm.company} type="text" name='company' placeholder='Company' />
+                                <input onChange={handleChangeAccountForm} value={accountForm.country} type="text" name='country' placeholder='Country' />
                                 </div>
                                 <div className={styles.setting_form_small_inputs}>
-                                <input type="text" placeholder='Phone Number' />
-                                <input type="date" placeholder='Birthday' />
+                                <input onChange={handleChangeAccountForm} value={accountForm.phone} type="text" name='phone' placeholder='Phone Number' />
+                                <input onChange={handleChangeAccountForm} value={accountForm.birthday} type="date" name='birthday' placeholder='Birthday' />
                                 </div>
-                                <button className={styles.tab1_button}>Update Changes</button>
+                                <button type='submit' className={styles.tab1_button}>Update Changes</button>
                             </form>
                             </div>
                            
@@ -334,7 +366,6 @@ export default function Setting() {
                             </div>
                             </div>
                            
-
                         </div>
                     </div>
                 </TabPanel>
