@@ -1,53 +1,34 @@
 import styles from '../styles/Dashboard.module.css'
 import Image from 'next/image'
-import Login from '../components/LoginForm/Login'
-import { useState } from 'react'
-import { useEffect } from 'react'
+import {useAuthState, useAuthDispatch} from '../lib/Auth_Context/AuthContext'
+import {ActionTypes} from '../lib/Auth_Context/reducer'
+import Login from './login'
+import { useRouter } from 'next/router'
 
 function Dashboard() {
 
-    const userAdmin = {
-        username: 'admin',
-        password: "123"
-    }
+    const router = useRouter()
 
-    const [form, setForm] = useState({
-        username:'',
-        password:''
-    })
-
-    const loginTo = (details) => {
-        if (details.username === userAdmin.username && details.password === userAdmin.password) {
-            setForm({
-                username: details.username,
-                password: details.password
-            })
-            localStorage.setItem('loginKey',JSON.stringify(details))
-        }
-    }
+    const {username, password} = useAuthState();
+    const dispatch = useAuthDispatch();
 
     const loginOut = (e) => {
         e.preventDefault();
-        setForm({
-            username:'',
-            password:''
-        }
-        )
+        dispatch({
+            type: ActionTypes.LOGOUT
+        })
+        // localStorage.clear("loginKey")
     }
 
-    useEffect(() => {
-        const token = localStorage.getItem('loginKey')
-        if (token) {
-            setForm(token)
-        }
-    }, [])
-
+    // const loginForm = () => {
+    //     router.push('/login')
+    // }
 
 
     return ( 
         <>
         {
-            form.username !== '' ?
+           (username && password) ?
             <div className={styles.dashboard}>
                 <div className={styles.dashboard_card}>
                     <div className={styles.dashboard_card_top}>
@@ -84,8 +65,7 @@ function Dashboard() {
                 </div>
         </div>
         :
-        <Login loginTo={loginTo} />
-
+            <p>FIX</p>
         }
         
         </>
@@ -93,3 +73,4 @@ function Dashboard() {
 }
 
 export default Dashboard
+
