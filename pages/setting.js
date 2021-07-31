@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from '../styles/Setting.module.css'
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
@@ -12,7 +12,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Switch from '@material-ui/core/Switch';
 import Image from 'next/image'
-import { useEffect } from 'react';
+import Toast from '../components/Toast/Toast';
+import { useRouter } from 'next/router';
 
 function TabPanel(props) {
     const {
@@ -50,6 +51,10 @@ function a11yProps(index) {
 
 export default function Setting() {
 
+    const router = useRouter()
+
+    const [toast, setToast] = React.useState(false)
+
     const [accountForm, setAccountForm] = React.useState({
         name: '',
         email:'',
@@ -65,19 +70,22 @@ export default function Setting() {
         })
     }
     function handleButtonAccountForm() {
-        localStorage.setItem('accountform', JSON.stringify(accountForm))
+        localStorage.setItem('accountform', JSON.stringify(accountForm));
+        setToast(true)
+
     }
+
+    //// FIX Toast  ///
+
 
     // Update and GET item from LocaleStorage
     useEffect(() => {
         const token = localStorage.getItem('accountform')
-        const switchers = localStorage.getItem('switcher')
         if (token) {
             setAccountForm(JSON.parse(token))
         }
-        if (switchers) {
-            setSwitcher(JSON.parse(switchers))
-        }
+        router.push('/setting')
+
     }, [])
 
 
@@ -133,12 +141,10 @@ export default function Setting() {
           });
 
           const handleChangeSwitcher = (event) => {
-            // localStorage.setItem('switcher', JSON.stringify(switcher))
             setSwitcher({ 
                 ...switcher,
                  [event.target.name]: event.target.checked 
                 });
-                console.log(switcher);
           };
 
 
@@ -178,6 +184,7 @@ export default function Setting() {
                                 <input onChange={handleChangeAccountForm} value={accountForm.birthday} type="date" name='birthday' placeholder='Birthday' />
                                 </div>
                                 <button type='submit' className={styles.tab1_button}>Update Changes</button>
+                                {toast && <Toast message='Done' type='success' />}
                             </form>
                             </div>
                            

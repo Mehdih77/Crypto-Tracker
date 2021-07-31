@@ -1,15 +1,60 @@
 import styles from '../styles/Dashboard.module.css'
 import Image from 'next/image'
+import Login from '../components/LoginForm/Login'
+import { useState } from 'react'
+import { useEffect } from 'react'
 
 function Dashboard() {
-    return (
-        <div className={styles.dashboard}>
+
+    const userAdmin = {
+        username: 'admin',
+        password: "123"
+    }
+
+    const [form, setForm] = useState({
+        username:'',
+        password:''
+    })
+
+    const loginTo = (details) => {
+        if (details.username === userAdmin.username && details.password === userAdmin.password) {
+            setForm({
+                username: details.username,
+                password: details.password
+            })
+            localStorage.setItem('loginKey',JSON.stringify(details))
+        }
+    }
+
+    const loginOut = (e) => {
+        e.preventDefault();
+        setForm({
+            username:'',
+            password:''
+        }
+        )
+    }
+
+    useEffect(() => {
+        const token = localStorage.getItem('loginKey')
+        if (token) {
+            setForm(token)
+        }
+    }, [])
+
+
+
+    return ( 
+        <>
+        {
+            form.username !== '' ?
+            <div className={styles.dashboard}>
                 <div className={styles.dashboard_card}>
                     <div className={styles.dashboard_card_top}>
                     <div className={styles.dashboard_card_top_img}>
                     <Image width={130} height={130} src="/img/user.png" alt="user" />
                     </div>
-                        <button className={styles.log_in_out}>Log Out</button>
+                        <button onClick={loginOut} className={styles.log_in_out}>Log Out</button>
                     </div>
                     <div className={styles.dashboard_card_middle}>
                             <p className={styles.user_name}> Mehdi <span className={styles.user_age}>24</span></p>
@@ -38,6 +83,12 @@ function Dashboard() {
                     </div>
                 </div>
         </div>
+        :
+        <Login loginTo={loginTo} />
+
+        }
+        
+        </>
     )
 }
 
