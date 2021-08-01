@@ -14,6 +14,8 @@ import Switch from '@material-ui/core/Switch';
 import Image from 'next/image'
 import Toast from '../components/Toast/Toast';
 import { useRouter } from 'next/router';
+import {useAuthState} from '../lib/Auth_Context/AuthContext'
+import Redirect from '../components/Redirect/Redirect';
 
 function TabPanel(props) {
     const {
@@ -51,6 +53,8 @@ function a11yProps(index) {
 
 export default function Setting() {
 
+    const {username, password} = useAuthState();
+
     const router = useRouter()
 
     const [toast, setToast] = React.useState(false)
@@ -70,7 +74,7 @@ export default function Setting() {
         })
     }
     function handleButtonAccountForm() {
-        localStorage.setItem('accountform', JSON.stringify(accountForm));
+        // localStorage.setItem('accountform', JSON.stringify(accountForm));
         setToast(true)
 
     }
@@ -80,10 +84,10 @@ export default function Setting() {
 
     // Update and GET item from LocaleStorage
     useEffect(() => {
-        const token = localStorage.getItem('accountform')
-        if (token) {
-            setAccountForm(JSON.parse(token))
-        }
+        // const token = localStorage.getItem('accountform')
+        // if (token) {
+        //     setAccountForm(JSON.parse(token))
+        // }
         router.push('/setting')
 
     }, [])
@@ -149,6 +153,8 @@ export default function Setting() {
 
 
     return (
+        <>
+    { (username && password) ?
         <div className={styles.setting_section}>
             <div className={styles.setting_container}>
                 <AppBar position="static">
@@ -378,5 +384,8 @@ export default function Setting() {
                 </TabPanel>
             </div>
         </div>
+        :
+        <Redirect to='/login' />}
+        </>
     );
 }

@@ -2,12 +2,9 @@ import styles from '../styles/Dashboard.module.css'
 import Image from 'next/image'
 import {useAuthState, useAuthDispatch} from '../lib/Auth_Context/AuthContext'
 import {ActionTypes} from '../lib/Auth_Context/reducer'
-import Login from './login'
-import { useRouter } from 'next/router'
+import Redirect from '../components/Redirect/Redirect'
 
 function Dashboard() {
-
-    const router = useRouter()
 
     const {username, password} = useAuthState();
     const dispatch = useAuthDispatch();
@@ -17,13 +14,8 @@ function Dashboard() {
         dispatch({
             type: ActionTypes.LOGOUT
         })
-        // localStorage.clear("loginKey")
+        // localStorage.clear("loginkey")
     }
-
-    // const loginForm = () => {
-    //     router.push('/login')
-    // }
-
 
     return ( 
         <>
@@ -65,7 +57,7 @@ function Dashboard() {
                 </div>
         </div>
         :
-            <p>FIX</p>
+            <Redirect to='/login' />
         }
         
         </>
