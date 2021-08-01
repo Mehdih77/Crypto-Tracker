@@ -15,13 +15,6 @@
       "id": 4
     },
     {
-      "kind": "expense",
-      "logo": "fab fa-bitcoin",
-      "activity": "ff",
-      "price": "8000",
-      "id": 6
-    },
-    {
       "activity": "buy",
       "price": "5000",
       "kind": "expense",
@@ -29,18 +22,25 @@
       "id": 8
     },
     {
-      "activity": "hhh",
-      "logo": "fas fa-yen-sign",
-      "price": "5000",
-      "kind": "income",
-      "id": 9
+      "logo": "fab fa-bitcoin",
+      "activity": "buy",
+      "kind": "expense",
+      "price": "1000",
+      "id": 11
     },
     {
-      "logo": "fab fa-ethereum",
-      "activity": "g",
-      "price": "2000",
+      "activity": "sold it",
+      "logo": "fab fa-bitcoin",
+      "kind": "income",
+      "price": "3000",
+      "id": 12
+    },
+    {
+      "price": "3500",
       "kind": "expense",
-      "id": 10
+      "activity": "buy",
+      "logo": "fab fa-ethereum",
+      "id": 13
     }
   ]
 }

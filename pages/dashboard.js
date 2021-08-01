@@ -14,13 +14,17 @@ function Dashboard() {
         dispatch({
             type: ActionTypes.LOGOUT
         })
-        // localStorage.clear("loginkey")
+        localStorage.removeItem("loginkey")
+    }
+
+    if (typeof window !== "undefined") {
+        var getToken = JSON.parse(localStorage.getItem("loginkey"))
     }
 
     return ( 
         <>
         {
-           (username && password) ?
+           (getToken) ?
             <div className={styles.dashboard}>
                 <div className={styles.dashboard_card}>
                     <div className={styles.dashboard_card_top}>

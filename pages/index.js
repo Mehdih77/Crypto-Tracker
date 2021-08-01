@@ -8,6 +8,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
+import Redirect from "../components/Redirect/Redirect";
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -108,9 +109,13 @@ export default function Home({getActivities,getExpense,getIncome}) {
                 setOpen(false);
       };
 
+      if (typeof window !== "undefined") {
+        var getToken = JSON.parse(localStorage.getItem("loginkey"))
+    }
+
     return (
         <>
-            <div className='home_style'>
+            { getToken ? <div className='home_style'>
                 <div className='money'>
                 <div className='money-income'>
                 <div className='money-details'>
@@ -191,7 +196,8 @@ export default function Home({getActivities,getExpense,getIncome}) {
                         {mapRecentActivity}
                     </div>
                 </div>
-            </div>
+            </div> :
+            <Redirect to='/login' />}
         </>
     );
 }

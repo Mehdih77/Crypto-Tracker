@@ -74,23 +74,21 @@ export default function Setting() {
         })
     }
     function handleButtonAccountForm() {
-        // localStorage.setItem('accountform', JSON.stringify(accountForm));
+        localStorage.setItem('accountform', JSON.stringify(accountForm));
         setToast(true)
-
     }
-
-    //// FIX Toast  ///
-
 
     // Update and GET item from LocaleStorage
     useEffect(() => {
-        // const token = localStorage.getItem('accountform')
-        // if (token) {
-        //     setAccountForm(JSON.parse(token))
-        // }
+        const token = localStorage.getItem('accountform');
+        if (token) {
+            setAccountForm(JSON.parse(token))
+        }
         router.push('/setting')
-
     }, [])
+
+
+    
 
 
     // Password 
@@ -151,10 +149,12 @@ export default function Setting() {
                 });
           };
 
-
+          if (typeof window !== "undefined") {
+              var getToken = JSON.parse(localStorage.getItem("loginkey"))
+          }
     return (
         <>
-    { (username && password) ?
+    { (getToken) ?
         <div className={styles.setting_section}>
             <div className={styles.setting_container}>
                 <AppBar position="static">

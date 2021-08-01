@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useLayoutEffect} from 'react'
 import styles from '../styles/Login.module.css'
 import {useAuthDispatch, useAuthState} from '../lib/Auth_Context/AuthContext'
 import {ActionTypes} from '../lib/Auth_Context/reducer'
@@ -42,7 +42,7 @@ function Login() {
                         password: form.password
                     }
                 }),
-                localStorage.setItem("loginkey",JSON.stringify(form));
+                window.localStorage.setItem("loginkey",JSON.stringify(form));
                 router.push('/');
             } else{
                 dispatch({
@@ -55,14 +55,20 @@ function Login() {
             }
     }
 
+    // useEffect(() => {
 
-    useEffect(() => {
-        const token = localStorage.getItem("loginkey");
-        // console.log(token);
-        if (token) {
-            setForm(JSON.parse(token))
-        }
-    }, [])
+    //     // if (typeof window !== "undefined") {
+    //     //     const token = JSON.parse(window.localStorage.getItem("loginkey"));
+    //     // // console.log(token);
+    //     //     setForm(token)
+        
+    //     // }
+    //         const token = localStorage.getItem('loginkey');
+    //         if (token) {
+    //           setForm(token)
+    //       }
+        
+    // }, [])
 
 
 
@@ -75,17 +81,17 @@ function Login() {
             <h5>Login To Your Account</h5>
             { error && <p className={styles.error_text}> {error} </p>}
                 <input
-                    placeholder='Username'
+                    placeholder="Username"
                     type="text"
-                    name='username'
+                    name="username"
                     onChange={handleChange}
                     autoComplete='off'/>
                 <input
-                    placeholder='Password'
+                    placeholder="Password"
                     type="password"
-                    name='password'
+                    name="password"
                     onChange={handleChange}/>
-                <button type='submit'>Login</button>
+                <button type="submit">Login</button>
             </form>
         </div>
         <div className={styles.login_form_right}>

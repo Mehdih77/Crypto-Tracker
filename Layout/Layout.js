@@ -3,7 +3,6 @@ import Navbar from '../components/Navbar/Navbar';
 
 const Layout = ({ children, title = 'Crypto Tracker' }) => {
 
-
   return (
     <div className='layout'>
       <Head>
